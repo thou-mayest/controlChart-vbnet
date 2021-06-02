@@ -1,0 +1,12 @@
+C:\Users\brahmi\source\repos\testExGraph\bin\Release\testExGraph.exe.config
+C:\Users\brahmi\source\repos\testExGraph\bin\Release\testExGraph.exe
+C:\Users\brahmi\source\repos\testExGraph\bin\Release\testExGraph.pdb
+C:\Users\brahmi\source\repos\testExGraph\bin\Release\testExGraph.xml
+C:\Users\brahmi\source\repos\testExGraph\obj\Release\testExGraph.vbprojAssemblyReference.cache
+C:\Users\brahmi\source\repos\testExGraph\obj\Release\testExGraph.vbproj.ResolveComReference.cache
+C:\Users\brahmi\source\repos\testExGraph\obj\Release\testExGraph.Form1.resources
+C:\Users\brahmi\source\repos\testExGraph\obj\Release\testExGraph.Resources.resources
+C:\Users\brahmi\source\repos\testExGraph\obj\Release\testExGraph.vbproj.GenerateResource.cache
+C:\Users\brahmi\source\repos\testExGraph\obj\Release\testExGraph.exe
+C:\Users\brahmi\source\repos\testExGraph\obj\Release\testExGraph.xml
+C:\Users\brahmi\source\repos\testExGraph\obj\Release\testExGraph.pdb
