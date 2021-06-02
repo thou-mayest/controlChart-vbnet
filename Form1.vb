@@ -13,22 +13,6 @@ Public Class Form1
 
     Const d2 As Double = 1.128F
 
-    Sub MainStart()
-
-        Try
-            xlColumn = Convert.ToInt32(TextBoxColumnNb.Text)
-            WorksheetName = TextBoxSheetName.Text
-            Filepath = My.Application.Info.DirectoryPath + "\" + TextBoxFilePath.Text
-            Console.WriteLine("test before timer")
-            ReadFromXL()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-
-
-
-
-    End Sub
 
 
     Public main_chart_points As New DataVisualization.Charting.Series
@@ -39,77 +23,28 @@ Public Class Form1
     Public LCL_chart_points As New DataVisualization.Charting.Series
 
 
-    Sub DoChartTest(arrayref As Object, arrayControl As Object, arrayMR As Object)
+    Sub DrawAllCharts(arrayref As Object, arrayControl As Object, arrayMR As Object)
 
 
         ' ============================================      DRAW MAIN CHART 
 
-        'main_chart_points.Points.Clear()
 
-        'main_chart_points.Name = "TEST CHART TYPE 1"
-
-
-
-        'main_chart_points.ChartType = SeriesChartType.FastLine
-
-        'main_chart_points.Color = Color.Black
-        'main_chart_points.BorderWidth = 1.0F
-
-
-
-        'For index As Integer = 2 To UBound(arrayref) - 1
-
-        '    main_chart_points.Points.AddXY(arrayref(index), arrayControl(index))
-
-        'Next
-
-        '=============================================//////////// SUBSTITUE
         DrawChart(main_chart_points, "CHART 1", arrayref, arrayControl, SeriesChartType.FastLine, Color.BlueViolet, 2.0F)
 
         '================================================== DRAW MAIN CHART POINTS 
 
-        'main_points.Points.Clear()
 
-        'main_points.Name = "TEST CHART points"
-
-
-
-        'main_points.ChartType = SeriesChartType.Point
-
-        'main_points.Color = Color.Red
-        'main_points.BorderWidth = 3.0F
-
-
-        'For index As Integer = 2 To UBound(arrayref) - 1
-
-        '    main_points.Points.AddXY(arrayref(index), arrayControl(index))
-
-        'Next
-
-        ' ///////////////////////////////////////// substitue test 
-        '////////////////////////////////: SUBSTITUE
 
         DrawChart(main_points, "TEST CHART points", arrayref, arrayControl, SeriesChartType.Point, Color.Red, 2.5F)
 
-        ' ==================================== DRAW MOY 
+        ' ==================================== DRAW MOY (average)
 
-        'Moy_chart_points.Points.Clear()
-        'Moy_chart_points.Name = "Moy"
-
-        'Moy_chart_points.ChartType = SeriesChartType.Line
-        'Moy_chart_points.Color = Color.Blue
-        'Moy_chart_points.BorderWidth = 1.5F
-
-        'Moyint = Moy(arrayControl)
-
-        'For i As Integer = 2 To UBound(arrayref) - 1
-        '    Moy_chart_points.Points.AddXY(arrayref(i), Moyint)
-        'Next
-        '==================================== SUBSTITUE
         DrawHorizantalLine(Moy_chart_points, "Moy", arrayref, Moy(arrayControl), SeriesChartType.Line, Color.Blue, 1.5F)
 
+        '===================================== DRAW UCL and LCL
         DrawHorizantalLine(UCL_chart_points, "UCL", arrayref, (Moy(arrayControl) + 3 * Moy(arrayMR)) / d2, SeriesChartType.FastLine, Color.Red, 1.5)
         DrawHorizantalLine(LCL_chart_points, "LCL", arrayref, (Moy(arrayControl) - 3 * Moy(arrayMR)) / d2, SeriesChartType.FastLine, Color.Red, 1.5)
+
         labelCP.Invoke(Sub()
                            labelCP.Text = (Convert.ToInt32(TextboxUSL.Text) - Convert.ToInt32(TextboxLSL.Text)) / Moy(arrayMR) / d2
                        End Sub)
@@ -164,8 +99,10 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'DoChartTest()
+        'DrawAllCharts()
         'ReadFromXL()
+
+        ' =============== insitialize charts series
         Try
             Chart1.Series.Add(main_chart_points)
             main_chart_points.Name = "MAIN CHART"
@@ -183,8 +120,12 @@ Public Class Form1
     End Sub
 
 
+    '============== CAHNGE: to read path from button 
     Dim Filepath = My.Application.Info.DirectoryPath + "\" + "Test.xlsx"
+
     Dim FileName = ""
+
+    '========= CHANGE: get filesheet names in drop list
     Dim WorksheetName As String
 
     Dim int As Integer
@@ -199,6 +140,23 @@ Public Class Form1
     Dim xlrow As Integer
 
     Dim xlColumn As Integer = 1
+
+    Sub MainStart()
+
+        Try
+            xlColumn = Convert.ToInt32(TextBoxColumnNb.Text)
+            WorksheetName = TextBoxSheetName.Text
+            Filepath = My.Application.Info.DirectoryPath + "\" + TextBoxFilePath.Text
+
+            ReadFromXL()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+
+
+
+    End Sub
 
     Private Sub ReadFromXL()
 
@@ -243,7 +201,9 @@ Public Class Form1
         '    End If
 
         'Next
-        ' ===================================== UNIFY POPULATE FUNCTIONS
+
+
+        ' =====================================  POPULATE FUNCTIONS
         Dim doubleTemp As Double
         For xlrow = 2 To xlrange.Rows.Count
             'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
@@ -263,16 +223,11 @@ Public Class Form1
             Console.WriteLine(Math.Abs(dataarrayControled(index) - dataarrayControled(index - 1)).ToString())
         Next
 
-        'For x = 0 To dataarray.Length() - 1
-        '    RichTextBox1.Text += dataarray(x)
-        '    RichTextBox1.Text += Environment.NewLine
-        'Next
 
-        'DoChartTest(dataarrayRef, dataarrayControled)
 
         Try
             Chart1.Invoke(Sub()
-                              DoChartTest(dataarrayRef, dataarrayControled, dataMR)
+                              DrawAllCharts(dataarrayRef, dataarrayControled, dataMR)
                           End Sub)
 
         Catch ex As Exception
@@ -306,19 +261,12 @@ Public Class Form1
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
-        ' ================================ TEST BUTTON 
-
-
-        'Dim arraytest(5) As Int32
-        'For i = 1 To 5
-        '    arraytest(i) = 1
-        'Next
-        'Moy(arraytest)
 
         Timer1.Stop()
 
 
     End Sub
+
     Dim ReadThread As Threading.Thread
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -331,7 +279,11 @@ Public Class Form1
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
 
+        Try
+            ReadThread.Abort()
+        Catch ex As Exception
 
+        End Try
 
         Try
             workbook.Close()
@@ -345,11 +297,7 @@ Public Class Form1
 
         End Try
 
-        Try
-            ReadThread.Abort()
-        Catch ex As Exception
 
-        End Try
     End Sub
 
     Private Sub TextboxUSL_Leave(sender As Object, e As EventArgs) Handles TextboxUSL.Leave
