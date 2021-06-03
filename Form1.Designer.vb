@@ -43,7 +43,11 @@ Partial Class Form1
         Me.LabelCPk = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Chart1
@@ -51,6 +55,10 @@ Partial Class Form1
         Me.Chart1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Chart1.BorderlineWidth = 0
+        Me.Chart1.BorderSkin.BackColor = System.Drawing.Color.White
+        Me.Chart1.BorderSkin.PageColor = System.Drawing.Color.DimGray
+        Me.Chart1.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Raised
         ChartArea1.Name = "ChartArea1"
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
@@ -171,8 +179,10 @@ Partial Class Form1
         '
         'labelCP
         '
+        Me.labelCP.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labelCP.AutoSize = True
-        Me.labelCP.Location = New System.Drawing.Point(1018, 433)
+        Me.labelCP.BackColor = System.Drawing.Color.White
+        Me.labelCP.Location = New System.Drawing.Point(1064, 431)
         Me.labelCP.Name = "labelCP"
         Me.labelCP.Size = New System.Drawing.Size(13, 13)
         Me.labelCP.TabIndex = 9
@@ -180,8 +190,10 @@ Partial Class Form1
         '
         'LabelCPk
         '
+        Me.LabelCPk.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelCPk.AutoSize = True
-        Me.LabelCPk.Location = New System.Drawing.Point(1018, 464)
+        Me.LabelCPk.BackColor = System.Drawing.Color.White
+        Me.LabelCPk.Location = New System.Drawing.Point(1064, 462)
         Me.LabelCPk.Name = "LabelCPk"
         Me.LabelCPk.Size = New System.Drawing.Size(13, 13)
         Me.LabelCPk.TabIndex = 13
@@ -189,8 +201,10 @@ Partial Class Form1
         '
         'Label7
         '
+        Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(991, 433)
+        Me.Label7.BackColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(1037, 431)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(24, 13)
         Me.Label7.TabIndex = 9
@@ -198,17 +212,42 @@ Partial Class Form1
         '
         'Label8
         '
+        Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(991, 464)
+        Me.Label8.BackColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(1037, 462)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(30, 13)
         Me.Label8.TabIndex = 13
         Me.Label8.Text = "CPk:"
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1178, 24)
+        Me.MenuStrip1.TabIndex = 14
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem.Text = "File"
+        '
+        'OptionsToolStripMenuItem
+        '
+        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OptionsToolStripMenuItem.Text = "options"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.DimGray
         Me.ClientSize = New System.Drawing.Size(1178, 565)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.LabelCPk)
@@ -227,11 +266,15 @@ Partial Class Form1
         Me.Controls.Add(Me.TextBoxFilePath)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Chart1)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ExcelGraph"
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -255,4 +298,7 @@ Partial Class Form1
     Friend WithEvents LabelCPk As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OptionsToolStripMenuItem As ToolStripMenuItem
 End Class

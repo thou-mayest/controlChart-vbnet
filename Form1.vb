@@ -29,20 +29,20 @@ Public Class Form1
         ' ============================================      DRAW MAIN CHART 
 
 
-        DrawChart(main_chart_points, "CHART 1", arrayref, arrayControl, SeriesChartType.FastLine, Color.BlueViolet, 2.0F)
+        DrawChart(main_chart_points, "CONTROLLED 1", arrayref, arrayControl, SeriesChartType.FastLine, Color.ForestGreen, 1.3F)
 
         '================================================== DRAW MAIN CHART POINTS 
 
 
 
-        DrawChart(main_points, "TEST CHART points", arrayref, arrayControl, SeriesChartType.Point, Color.Red, 2.5F)
+        DrawChart(main_points, "CONTROLED points", arrayref, arrayControl, SeriesChartType.Point, Color.ForestGreen, 2.5F)
 
         ' ==================================== DRAW MOY (average)
 
-        DrawHorizantalLine(Moy_chart_points, "Moy", arrayref, Moy(arrayControl), SeriesChartType.Line, Color.Blue, 1.5F)
+        DrawHorizantalLine(Moy_chart_points, "Moy", arrayref, Moy(arrayControl), SeriesChartType.Line, Color.Blue, 1.8F)
 
         '===================================== DRAW UCL and LCL
-        DrawHorizantalLine(UCL_chart_points, "UCL", arrayref, (Moy(arrayControl) + 3 * Moy(arrayMR)) / d2, SeriesChartType.FastLine, Color.Red, 1.5)
+        DrawHorizantalLine(UCL_chart_points, "UCL", arrayref, (Moy(arrayControl) + 3 * Moy(arrayMR)) / d2, SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
         DrawHorizantalLine(LCL_chart_points, "LCL", arrayref, (Moy(arrayControl) - 3 * Moy(arrayMR)) / d2, SeriesChartType.FastLine, Color.Red, 1.5)
 
         labelCP.Invoke(Sub()
@@ -53,6 +53,9 @@ Public Class Form1
                             Dim val2 = (Convert.ToInt32(TextboxUSL.Text) - Moy(arrayControl)) / 3 * Moy(arrayMR) / d2
                             LabelCPk.Text = Math.Min(val1, val2)
                         End Sub)
+
+        Chart1.ChartAreas(0).AxisX.MajorGrid.LineDashStyle = ChartDashStyle.DashDot
+        Chart1.ChartAreas(0).AxisY.MajorGrid.LineDashStyle = ChartDashStyle.DashDot
 
 
     End Sub
@@ -280,15 +283,20 @@ Public Class Form1
 
 
         Try
+            Timer1.Stop()
+
+        Catch ex As Exception
+            MsgBox("timer not stoped")
+        End Try
+        Try
             ReadThread.Abort()
         Catch ex As Exception
-
+            MsgBox("tread not sotped")
         End Try
-
         Try
             workbook.Close()
         Catch ex As Exception
-
+            MsgBox("workbook not close")
         End Try
 
         Try
@@ -316,5 +324,9 @@ Public Class Form1
             MsgBox("LSL field should be an int")
             TextboxLSL.Select()
         End Try
+    End Sub
+
+    Private Sub OptionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OptionsToolStripMenuItem.Click
+        MsgBox("test")
     End Sub
 End Class
