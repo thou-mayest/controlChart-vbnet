@@ -2,7 +2,6 @@
 Imports Microsoft.Office.Interop.Excel
 Imports System.Threading
 
-'this could be a magor change =====================================::::::::///////////////////////////////
 Public Class Form1
 
 
@@ -91,7 +90,8 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
+        Button1.Enabled = False
+        Button1.Text = "Running..."
 
 
         'MainStart()
@@ -124,9 +124,9 @@ Public Class Form1
 
 
     '============== CAHNGE: to read path from button 
-    Dim Filepath = My.Application.Info.DirectoryPath + "\" + "Test.xlsx"
+    Dim Filepath As String
 
-    Dim FileName = ""
+    Dim FileName As String
 
     '========= CHANGE: get filesheet names in drop list
     Dim WorksheetName As String
@@ -142,14 +142,15 @@ Public Class Form1
     Dim xlrange As Microsoft.Office.Interop.Excel.Range
     Dim xlrow As Integer
 
+    Dim range As Integer
     Dim xlColumn As Integer = 1
 
     Sub MainStart()
 
         Try
-            xlColumn = Convert.ToInt32(TextBoxColumnNb.Text)
-            WorksheetName = TextBoxSheetName.Text
-            Filepath = My.Application.Info.DirectoryPath + "\" + TextBoxFilePath.Text
+            xlColumn = Convert.ToInt32(Options.ColumnNb)
+            WorksheetName = Options.SheetName
+            Filepath = My.Application.Info.DirectoryPath + "\" + Options.FilePath
 
             ReadFromXL()
         Catch ex As Exception
@@ -173,10 +174,18 @@ Public Class Form1
         xlrange = xlworksheet.UsedRange
 
 
+        If Options.ReadToEnd Then
+            range = xlrange.Rows.Count
+        Else
+            range = Options.LinesRange + 1
+        End If
 
-        Dim dataarrayRef(xlrange.Rows.Count + 1) As String
-        Dim dataarrayControled(xlrange.Rows.Count + 1) As String
-        Dim dataMR(xlrange.Rows.Count + 1) As Integer
+
+
+
+        Dim dataarrayRef(range + 1) As String
+        Dim dataarrayControled(range + 1) As String
+        Dim dataMR(range + 1) As Integer
 
         '============================ populate dataarray
 
@@ -208,7 +217,7 @@ Public Class Form1
 
         ' =====================================  POPULATE FUNCTIONS
         Dim doubleTemp As Double
-        For xlrow = 2 To xlrange.Rows.Count
+        For xlrow = 2 To range + 1
             'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
             If String.IsNullOrEmpty(xlrange.Cells(xlrow, 1).Text) Or String.IsNullOrEmpty(xlrange.Cells(xlrow, xlColumn).Text) Or Not Double.TryParse(xlrange.Cells(xlrow, xlColumn).Text, doubleTemp) Then
                 dataarrayControled(xlrow) = "0"
@@ -220,13 +229,11 @@ Public Class Form1
         Next
         ' ================================== populate MR
 
-        For index = 3 To UBound(dataarrayControled) - 1
+        For index = 3 To UBound(dataarrayControled) - 2
             dataMR(index) = Math.Abs(dataarrayControled(index) - dataarrayControled(index - 1)).ToString()
             'Console.WriteLine(dataarrayControled(index).ToString() + " - " + dataarrayControled(index - 1).ToString() + " = " + dataMR(index - 1).ToString())
             Console.WriteLine(Math.Abs(dataarrayControled(index) - dataarrayControled(index - 1)).ToString())
         Next
-
-
 
         Try
             Chart1.Invoke(Sub()
@@ -234,7 +241,7 @@ Public Class Form1
                           End Sub)
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox(ex.Message & "  : 1 ")
             Timer1.Stop()
         End Try
 
@@ -263,7 +270,8 @@ Public Class Form1
     End Function
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
+        Button1.Enabled = True
+        Button1.Text = "Start"
 
         Timer1.Stop()
 
@@ -291,12 +299,12 @@ Public Class Form1
         Try
             ReadThread.Abort()
         Catch ex As Exception
-            MsgBox("tread not sotped")
+            MsgBox("tread not sotpped")
         End Try
         Try
             workbook.Close()
         Catch ex As Exception
-            MsgBox("workbook not close")
+            MsgBox("workbook not closed: " & ex.Message)
         End Try
 
         Try
@@ -327,6 +335,14 @@ Public Class Form1
     End Sub
 
     Private Sub OptionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OptionsToolStripMenuItem.Click
-        MsgBox("test")
+        OptionsForm.Show()
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+
+    End Sub
+
+    Private Sub TextboxUSL_TextChanged(sender As Object, e As EventArgs) Handles TextboxUSL.TextChanged
+
     End Sub
 End Class

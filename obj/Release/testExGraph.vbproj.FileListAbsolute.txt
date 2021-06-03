@@ -22,3 +22,4 @@ C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGr
 C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.exe
 C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.xml
 C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.pdb
+C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.OptionsForm.resources

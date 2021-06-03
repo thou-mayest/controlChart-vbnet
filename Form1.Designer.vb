@@ -27,12 +27,6 @@ Partial Class Form1
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBoxFilePath = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBoxColumnNb = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBoxSheetName = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TextboxUSL = New System.Windows.Forms.TextBox()
@@ -63,9 +57,9 @@ Partial Class Form1
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(2, 64)
+        Me.Chart1.Location = New System.Drawing.Point(2, 38)
         Me.Chart1.Name = "Chart1"
-        Me.Chart1.Size = New System.Drawing.Size(1173, 438)
+        Me.Chart1.Size = New System.Drawing.Size(1173, 464)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "Chart1"
         '
@@ -76,59 +70,8 @@ Partial Class Form1
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(83, 28)
         Me.Button1.TabIndex = 1
-        Me.Button1.Text = "create chart "
+        Me.Button1.Text = "start"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'TextBoxFilePath
-        '
-        Me.TextBoxFilePath.Location = New System.Drawing.Point(272, 12)
-        Me.TextBoxFilePath.Name = "TextBoxFilePath"
-        Me.TextBoxFilePath.Size = New System.Drawing.Size(125, 20)
-        Me.TextBoxFilePath.TabIndex = 4
-        Me.TextBoxFilePath.Text = "Classeur1.xlsx"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(164, 15)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(102, 13)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "File name(later path)"
-        '
-        'TextBoxColumnNb
-        '
-        Me.TextBoxColumnNb.Location = New System.Drawing.Point(272, 38)
-        Me.TextBoxColumnNb.Name = "TextBoxColumnNb"
-        Me.TextBoxColumnNb.Size = New System.Drawing.Size(31, 20)
-        Me.TextBoxColumnNb.TabIndex = 6
-        Me.TextBoxColumnNb.Text = "4"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(164, 41)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(80, 13)
-        Me.Label2.TabIndex = 7
-        Me.Label2.Text = "Column number"
-        '
-        'TextBoxSheetName
-        '
-        Me.TextBoxSheetName.Location = New System.Drawing.Point(471, 12)
-        Me.TextBoxSheetName.Name = "TextBoxSheetName"
-        Me.TextBoxSheetName.Size = New System.Drawing.Size(125, 20)
-        Me.TextBoxSheetName.TabIndex = 8
-        Me.TextBoxSheetName.Text = "Exemple2_CSV"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(403, 15)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(62, 13)
-        Me.Label3.TabIndex = 9
-        Me.Label3.Text = "sheet name"
         '
         'Button2
         '
@@ -145,7 +88,8 @@ Partial Class Form1
         '
         'TextboxUSL
         '
-        Me.TextboxUSL.Location = New System.Drawing.Point(994, 8)
+        Me.TextboxUSL.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextboxUSL.Location = New System.Drawing.Point(1067, 364)
         Me.TextboxUSL.Name = "TextboxUSL"
         Me.TextboxUSL.Size = New System.Drawing.Size(68, 20)
         Me.TextboxUSL.TabIndex = 11
@@ -153,7 +97,8 @@ Partial Class Form1
         '
         'TextboxLSL
         '
-        Me.TextboxLSL.Location = New System.Drawing.Point(994, 41)
+        Me.TextboxLSL.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextboxLSL.Location = New System.Drawing.Point(1067, 397)
         Me.TextboxLSL.Name = "TextboxLSL"
         Me.TextboxLSL.Size = New System.Drawing.Size(68, 20)
         Me.TextboxLSL.TabIndex = 12
@@ -161,8 +106,9 @@ Partial Class Form1
         '
         'Label4
         '
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(962, 13)
+        Me.Label4.Location = New System.Drawing.Point(1035, 369)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(28, 13)
         Me.Label4.TabIndex = 9
@@ -170,8 +116,9 @@ Partial Class Form1
         '
         'Label5
         '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(962, 44)
+        Me.Label5.Location = New System.Drawing.Point(1035, 400)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(26, 13)
         Me.Label5.TabIndex = 9
@@ -240,7 +187,7 @@ Partial Class Form1
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
         Me.OptionsToolStripMenuItem.Text = "options"
         '
         'Form1
@@ -258,12 +205,6 @@ Partial Class Form1
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.labelCP)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBoxSheetName)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBoxColumnNb)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBoxFilePath)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -282,12 +223,6 @@ Partial Class Form1
 
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
     Friend WithEvents Button1 As Button
-    Friend WithEvents TextBoxFilePath As TextBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents TextBoxColumnNb As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents TextBoxSheetName As TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents Timer1 As Timer
     Friend WithEvents TextboxUSL As TextBox
