@@ -2,15 +2,20 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Options.FilePath = TextBoxFilePath.Text
         Options.SheetName = TextBoxSheetName.Text
-        Options.ColumnNb = Convert.ToInt32(TextBoxColumnNb.Text)
+        Options.Column1 = TextBoxCol1.Text
+        Options.Column2 = TextBoxCol2.Text
+        Options.Column3 = TextBoxCol3.Text
+        Options.Column4 = TextBoxCol4.Text
+
+
         Options.LinesRange = Convert.ToInt32(TextBoxRange.Text)
 
         If CheckBoxReadTE.Checked Then
             Options.ReadToEnd = True
-            TextBoxColumnNb.Enabled = False
+            TextBoxCol1.Enabled = False
         Else
             Options.ReadToEnd = False
-            TextBoxColumnNb.Enabled = True
+            TextBoxCol1.Enabled = True
         End If
         Me.Close()
     End Sub
@@ -18,7 +23,11 @@
     Private Sub OptionsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TextBoxFilePath.Text = Options.FilePath
         TextBoxSheetName.Text = Options.SheetName
-        TextBoxColumnNb.Text = Options.ColumnNb.ToString()
+        TextBoxCol1.Text = Options.Column1
+        TextBoxCol2.Text = Options.Column2
+        TextBoxCol3.Text = Options.Column3
+        TextBoxCol4.Text = Options.Column4
+
         TextBoxRange.Text = Options.LinesRange
 
         If Options.ReadToEnd Then
@@ -37,5 +46,12 @@
         Else
             TextBoxRange.Enabled = True
         End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'MsgBox(Options.ColumnFromChar(TextBoxCol1.Text).ToString())
+        'MsgBox(Options.CharFromInt((Convert.ToInt32(TextBoxCol2.Text)) - 1).ToString())
+
+        MsgBox(Options.ColumnFromChar(TextBoxCol1.Text))
     End Sub
 End Class

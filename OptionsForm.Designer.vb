@@ -25,19 +25,23 @@ Partial Class OptionsForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBoxSheetName = New System.Windows.Forms.TextBox()
         Me.LabelColNB = New System.Windows.Forms.Label()
-        Me.TextBoxColumnNb = New System.Windows.Forms.TextBox()
+        Me.TextBoxCol1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBoxFilePath = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.CheckBoxReadTE = New System.Windows.Forms.CheckBox()
         Me.LabelRange = New System.Windows.Forms.Label()
         Me.TextBoxRange = New System.Windows.Forms.TextBox()
+        Me.TextBoxCol2 = New System.Windows.Forms.TextBox()
+        Me.TextBoxCol3 = New System.Windows.Forms.TextBox()
+        Me.TextBoxCol4 = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(121, 89)
+        Me.Label3.Location = New System.Drawing.Point(50, 71)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(62, 13)
         Me.Label3.TabIndex = 15
@@ -45,7 +49,7 @@ Partial Class OptionsForm
         '
         'TextBoxSheetName
         '
-        Me.TextBoxSheetName.Location = New System.Drawing.Point(229, 86)
+        Me.TextBoxSheetName.Location = New System.Drawing.Point(158, 68)
         Me.TextBoxSheetName.Name = "TextBoxSheetName"
         Me.TextBoxSheetName.Size = New System.Drawing.Size(125, 20)
         Me.TextBoxSheetName.TabIndex = 14
@@ -54,24 +58,24 @@ Partial Class OptionsForm
         'LabelColNB
         '
         Me.LabelColNB.AutoSize = True
-        Me.LabelColNB.Location = New System.Drawing.Point(121, 163)
+        Me.LabelColNB.Location = New System.Drawing.Point(50, 145)
         Me.LabelColNB.Name = "LabelColNB"
-        Me.LabelColNB.Size = New System.Drawing.Size(80, 13)
+        Me.LabelColNB.Size = New System.Drawing.Size(52, 13)
         Me.LabelColNB.TabIndex = 13
-        Me.LabelColNB.Text = "Column number"
+        Me.LabelColNB.Text = "columns: "
         '
-        'TextBoxColumnNb
+        'TextBoxCol1
         '
-        Me.TextBoxColumnNb.Location = New System.Drawing.Point(229, 160)
-        Me.TextBoxColumnNb.Name = "TextBoxColumnNb"
-        Me.TextBoxColumnNb.Size = New System.Drawing.Size(31, 20)
-        Me.TextBoxColumnNb.TabIndex = 12
-        Me.TextBoxColumnNb.Text = "4"
+        Me.TextBoxCol1.Location = New System.Drawing.Point(137, 138)
+        Me.TextBoxCol1.Name = "TextBoxCol1"
+        Me.TextBoxCol1.Size = New System.Drawing.Size(31, 20)
+        Me.TextBoxCol1.TabIndex = 12
+        Me.TextBoxCol1.Text = "D"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(121, 52)
+        Me.Label1.Location = New System.Drawing.Point(50, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(102, 13)
         Me.Label1.TabIndex = 11
@@ -79,7 +83,7 @@ Partial Class OptionsForm
         '
         'TextBoxFilePath
         '
-        Me.TextBoxFilePath.Location = New System.Drawing.Point(229, 49)
+        Me.TextBoxFilePath.Location = New System.Drawing.Point(158, 31)
         Me.TextBoxFilePath.Name = "TextBoxFilePath"
         Me.TextBoxFilePath.Size = New System.Drawing.Size(125, 20)
         Me.TextBoxFilePath.TabIndex = 10
@@ -87,7 +91,7 @@ Partial Class OptionsForm
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(372, 218)
+        Me.Button1.Location = New System.Drawing.Point(301, 200)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 16
@@ -97,7 +101,7 @@ Partial Class OptionsForm
         'CheckBoxReadTE
         '
         Me.CheckBoxReadTE.AutoSize = True
-        Me.CheckBoxReadTE.Location = New System.Drawing.Point(229, 127)
+        Me.CheckBoxReadTE.Location = New System.Drawing.Point(158, 109)
         Me.CheckBoxReadTE.Name = "CheckBoxReadTE"
         Me.CheckBoxReadTE.Size = New System.Drawing.Size(81, 17)
         Me.CheckBoxReadTE.TabIndex = 18
@@ -107,7 +111,7 @@ Partial Class OptionsForm
         'LabelRange
         '
         Me.LabelRange.AutoSize = True
-        Me.LabelRange.Location = New System.Drawing.Point(121, 128)
+        Me.LabelRange.Location = New System.Drawing.Point(50, 110)
         Me.LabelRange.Name = "LabelRange"
         Me.LabelRange.Size = New System.Drawing.Size(39, 13)
         Me.LabelRange.TabIndex = 20
@@ -115,17 +119,54 @@ Partial Class OptionsForm
         '
         'TextBoxRange
         '
-        Me.TextBoxRange.Location = New System.Drawing.Point(176, 125)
+        Me.TextBoxRange.Location = New System.Drawing.Point(105, 107)
         Me.TextBoxRange.Name = "TextBoxRange"
         Me.TextBoxRange.Size = New System.Drawing.Size(31, 20)
         Me.TextBoxRange.TabIndex = 19
         Me.TextBoxRange.Text = "10"
         '
+        'TextBoxCol2
+        '
+        Me.TextBoxCol2.Location = New System.Drawing.Point(174, 138)
+        Me.TextBoxCol2.Name = "TextBoxCol2"
+        Me.TextBoxCol2.Size = New System.Drawing.Size(31, 20)
+        Me.TextBoxCol2.TabIndex = 21
+        Me.TextBoxCol2.Text = "D"
+        '
+        'TextBoxCol3
+        '
+        Me.TextBoxCol3.Location = New System.Drawing.Point(211, 138)
+        Me.TextBoxCol3.Name = "TextBoxCol3"
+        Me.TextBoxCol3.Size = New System.Drawing.Size(31, 20)
+        Me.TextBoxCol3.TabIndex = 22
+        Me.TextBoxCol3.Text = "D"
+        '
+        'TextBoxCol4
+        '
+        Me.TextBoxCol4.Location = New System.Drawing.Point(248, 138)
+        Me.TextBoxCol4.Name = "TextBoxCol4"
+        Me.TextBoxCol4.Size = New System.Drawing.Size(31, 20)
+        Me.TextBoxCol4.TabIndex = 23
+        Me.TextBoxCol4.Text = "D"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(130, 200)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 24
+        Me.Button2.Text = "test"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'OptionsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(471, 253)
+        Me.ClientSize = New System.Drawing.Size(388, 236)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.TextBoxCol4)
+        Me.Controls.Add(Me.TextBoxCol3)
+        Me.Controls.Add(Me.TextBoxCol2)
         Me.Controls.Add(Me.LabelRange)
         Me.Controls.Add(Me.TextBoxRange)
         Me.Controls.Add(Me.CheckBoxReadTE)
@@ -133,7 +174,7 @@ Partial Class OptionsForm
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TextBoxSheetName)
         Me.Controls.Add(Me.LabelColNB)
-        Me.Controls.Add(Me.TextBoxColumnNb)
+        Me.Controls.Add(Me.TextBoxCol1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBoxFilePath)
         Me.MaximizeBox = False
@@ -143,7 +184,6 @@ Partial Class OptionsForm
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "OptionsForm"
-        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -152,11 +192,15 @@ Partial Class OptionsForm
     Friend WithEvents Label3 As Label
     Friend WithEvents TextBoxSheetName As TextBox
     Friend WithEvents LabelColNB As Label
-    Friend WithEvents TextBoxColumnNb As TextBox
+    Friend WithEvents TextBoxCol1 As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBoxFilePath As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents CheckBoxReadTE As CheckBox
     Friend WithEvents LabelRange As Label
     Friend WithEvents TextBoxRange As TextBox
+    Friend WithEvents TextBoxCol2 As TextBox
+    Friend WithEvents TextBoxCol3 As TextBox
+    Friend WithEvents TextBoxCol4 As TextBox
+    Friend WithEvents Button2 As Button
 End Class

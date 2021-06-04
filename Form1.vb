@@ -148,7 +148,7 @@ Public Class Form1
     Sub MainStart()
 
         Try
-            xlColumn = Convert.ToInt32(Options.ColumnNb)
+            xlColumn = Options.ColumnFromChar(Options.Column1)
             WorksheetName = Options.SheetName
             Filepath = My.Application.Info.DirectoryPath + "\" + Options.FilePath
 
