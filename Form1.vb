@@ -44,6 +44,7 @@ Public Class Form1
         ' ==================================== DRAW MOY (average)
 
         DrawHorizantalLine(Moy_chart_points, "Moy", arrayref, Moy(arrayControl), SeriesChartType.Line, Color.Blue, 1.8F)
+        Debug.WriteLine(Moy(arrayControl) & " : this is moyint")
 
         '===================================== DRAW LSC and LIC
         DrawHorizantalLine(UCL_chart_points, "LSC", arrayref, (Moy(arrayControl) + 3 * Moy(etendue)) / d2, SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
@@ -66,7 +67,7 @@ Public Class Form1
         Chart1.ChartAreas(0).AxisX.MajorGrid.LineDashStyle = ChartDashStyle.DashDot
         Chart1.ChartAreas(0).AxisY.MajorGrid.LineDashStyle = ChartDashStyle.DashDot
 
-
+        'Chart1.ChartAreas(0).AxisY.Maximum = 0.5
         ' ================================================================================================================
         ' ============================================      DRAW etendue CHART ===========================================
 
@@ -83,9 +84,9 @@ Public Class Form1
         DrawHorizantalLine(Moy_chart_points2, "Moy", arrayref, Moy(etendue), SeriesChartType.Line, Color.Blue, 1.8F)
 
         '===================================== DRAW LSC and LIC
-        DrawHorizantalLine(UCL_chart_points2, "LSC", arrayref, d4 * Moy(arrayControl), SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
-        DrawHorizantalLine(LCL_chart_points2, "LCL", arrayref, D3 * Moy(arrayControl), SeriesChartType.FastLine, Color.Red, 1.5)
-
+        DrawHorizantalLine(UCL_chart_points2, "LSC", arrayref, d4 * Moy(etendue), SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
+        DrawHorizantalLine(LCL_chart_points2, "LCL", arrayref, D3 * Moy(etendue), SeriesChartType.FastLine, Color.Red, 1.5)
+        Debug.WriteLine(d4 * Moy(etendue) & " : LSC")
 
         ' ==============://///////////// CHANGE LABEL NAME AND CALC CPK  &&..
         labelCP.Invoke(Sub()
@@ -93,6 +94,7 @@ Public Class Form1
                        End Sub)
         LabelCPk.Invoke(Sub()
                             Dim val1 = (Moy(arrayControl) - Convert.ToInt32(TextboxLSL.Text)) / 3 * Moy(etendue) / d2
+
                             Dim val2 = (Convert.ToInt32(TextboxUSL.Text) - Moy(arrayControl)) / 3 * Moy(etendue) / d2
                             LabelCPK2.Text = Math.Min(val1, val2)
                         End Sub)
@@ -114,10 +116,9 @@ Public Class Form1
 
             chart.Points.AddXY(refarray(index), ControlData(index))
 
-
         Next
     End Sub
-    Public Sub DrawHorizantalLine(chart As DataVisualization.Charting.Series, name As String, refarray As Array, ControlData As Integer, ChartType As SeriesChartType, color As Color, Border As Double)
+    Public Sub DrawHorizantalLine(chart As DataVisualization.Charting.Series, name As String, refarray As Array, ControlData As Double, ChartType As SeriesChartType, color As Color, Border As Double)
         chart.Points.Clear()
         chart.Name = name
         chart.ChartType = ChartType
@@ -126,7 +127,9 @@ Public Class Form1
 
         For index = 2 To UBound(refarray) - 1
             chart.Points.AddXY(refarray(index), ControlData)
+            'chart.Points.AddXY(refarray(index), 0.002)
         Next
+
 
 
     End Sub
@@ -239,12 +242,12 @@ Public Class Form1
 
 
         Dim dataarrayRef(range + 1) As String
-        Dim arraymoy(range + 1) As String
+        Dim arraymoy(range + 1) As Double
         Dim P1(range + 1) As String
         Dim P2(range + 1) As String
         Dim P3(range + 1) As String
         Dim P4(range + 1) As String
-        Dim etendue(range + 1) As Integer
+        Dim etendue(range + 1) As Double
 
 
 
@@ -253,17 +256,23 @@ Public Class Form1
 
         Dim doubleTemp As Double
         xlColumn = Options.ColumnFromChar(Options.Column1)
+        'Debug.WriteLine(xlColumn & ": xlcolumn")
+        Try
+            For xlrow = 2 To range
+                'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
+                If String.IsNullOrEmpty(xlrange.Cells(xlrow, 1).Text) Or String.IsNullOrEmpty(xlrange.Cells(xlrow, xlColumn).Text) Or Not Double.TryParse(xlrange.Cells(xlrow, xlColumn).Text, doubleTemp) Then
+                    P1(xlrow) = "0"
+                    dataarrayRef(xlrow) = "0"
+                Else
+                    dataarrayRef(xlrow) = xlrange.Cells(xlrow, 1).Text
+                    P1(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
+                End If
+            Next
 
-        For xlrow = 2 To range
-            'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
-            If String.IsNullOrEmpty(xlrange.Cells(xlrow, 1).Text) Or String.IsNullOrEmpty(xlrange.Cells(xlrow, xlColumn).Text) Or Not Double.TryParse(xlrange.Cells(xlrow, xlColumn).Text, doubleTemp) Then
-                P1(xlrow) = "0"
-                dataarrayRef(xlrow) = "0"
-            Else
-                dataarrayRef(xlrow) = xlrange.Cells(xlrow, 1).Text
-                P1(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
-            End If
-        Next
+        Catch ex As Exception
+            MsgBox(ex.Message & " : populate function p1 and ref")
+        End Try
+
 
         ' =====================================  POPULATE FUNCTIONS p2 
 
@@ -313,8 +322,8 @@ Public Class Form1
         ' ================================== calc and populate Moy
 
         For xlrow = 2 To range
-            arraymoy(xlrow) = (Convert.ToInt32(P1(xlrow)) + Convert.ToInt32(P2(xlrow)) + Convert.ToInt32(P3(xlrow)) + Convert.ToInt32(P4(xlrow))) / 4
-            Debug.WriteLine(arraymoy(xlrow))
+            arraymoy(xlrow) = Convert.ToDouble((Convert.ToDouble(P1(xlrow)) + Convert.ToDouble(P2(xlrow)) + Convert.ToDouble(P3(xlrow)) + Convert.ToDouble(P4(xlrow))) / 4) * 100
+            'Debug.WriteLine(Convert.ToDouble(arraymoy(xlrow)))
         Next
 
         ' ================================= calculate and populate "etendue"
@@ -337,20 +346,22 @@ Public Class Form1
 
 
 
-    Dim Moyint As Integer
+    Dim Moyint As Double
     Dim ElCount As Integer
-    Function Moy(array As Object) As Integer
+    Function Moy(array As Object) As Double
 
         ElCount = 0
         Moyint = 0
 
         If IsArray(array) Then
             For i = LBound(array) + 2 To UBound(array) - 1
-                Moyint += array(i)
+                Moyint += Convert.ToDouble(array(i))
                 ElCount += 1
             Next
             Moyint = Moyint / ElCount
         End If
+
+
 
         Return Moyint
 

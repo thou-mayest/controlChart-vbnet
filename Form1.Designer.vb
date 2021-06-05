@@ -79,7 +79,7 @@ Partial Class Form1
         Me.Chart1.Location = New System.Drawing.Point(3, 3)
         Me.Chart1.Name = "Chart1"
         Me.Chart1.Size = New System.Drawing.Size(1172, 247)
-        Me.Chart1.TabIndex = 0
+        Me.Chart1.TabIndex = 1
         Me.Chart1.Text = "Chart1"
         '
         'Button1
