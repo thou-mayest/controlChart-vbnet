@@ -105,6 +105,7 @@ Public Class Form1
 
     End Sub
 
+    Dim tempd As Double
     Public Sub DrawChart(chart As DataVisualization.Charting.Series, name As String, refarray As Array, ControlData As Array, ChartType As SeriesChartType, color As Color, Border As Double)
         chart.Points.Clear()
         chart.Name = name
@@ -113,8 +114,10 @@ Public Class Form1
         chart.BorderWidth = Border
 
         For index = 2 To UBound(refarray) - 1
+            If Not String.IsNullOrEmpty(refarray(index)) Then
+                chart.Points.AddXY(refarray(index), ControlData(index))
+            End If
 
-            chart.Points.AddXY(refarray(index), ControlData(index))
 
         Next
     End Sub
