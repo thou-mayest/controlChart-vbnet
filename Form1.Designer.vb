@@ -47,11 +47,11 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LabelCPK2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.LabelCP2 = New System.Windows.Forms.Label()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -127,6 +127,7 @@ Partial Class Form1
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(1051, 126)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(28, 13)
@@ -137,6 +138,7 @@ Partial Class Form1
         '
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(1051, 157)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(26, 13)
@@ -244,11 +246,11 @@ Partial Class Form1
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.TextBox1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.TextBox2)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Label2)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.LabelCPK2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label3)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label6)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label9)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Label10)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.LabelCP2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Chart2)
         Me.SplitContainer1.Size = New System.Drawing.Size(1178, 492)
         Me.SplitContainer1.SplitterDistance = 253
@@ -283,21 +285,22 @@ Partial Class Form1
         Me.TextBox2.TabIndex = 20
         Me.TextBox2.Text = "0"
         '
-        'Label2
+        'LabelCPK2
         '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(1080, 207)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(13, 13)
-        Me.Label2.TabIndex = 22
-        Me.Label2.Text = "0"
+        Me.LabelCPK2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelCPK2.AutoSize = True
+        Me.LabelCPK2.BackColor = System.Drawing.Color.White
+        Me.LabelCPK2.Location = New System.Drawing.Point(1080, 207)
+        Me.LabelCPK2.Name = "LabelCPK2"
+        Me.LabelCPK2.Size = New System.Drawing.Size(13, 13)
+        Me.LabelCPK2.TabIndex = 22
+        Me.LabelCPK2.Text = "0"
         '
         'Label3
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(1051, 145)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(26, 13)
@@ -319,22 +322,23 @@ Partial Class Form1
         '
         Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.White
         Me.Label9.Location = New System.Drawing.Point(1051, 114)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(28, 13)
         Me.Label9.TabIndex = 17
         Me.Label9.Text = "USL"
         '
-        'Label10
+        'LabelCP2
         '
-        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(1080, 176)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(13, 13)
-        Me.Label10.TabIndex = 18
-        Me.Label10.Text = "0"
+        Me.LabelCP2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelCP2.AutoSize = True
+        Me.LabelCP2.BackColor = System.Drawing.Color.White
+        Me.LabelCP2.Location = New System.Drawing.Point(1080, 176)
+        Me.LabelCP2.Name = "LabelCP2"
+        Me.LabelCP2.Size = New System.Drawing.Size(13, 13)
+        Me.LabelCP2.TabIndex = 18
+        Me.LabelCP2.Text = "0"
         '
         'Chart2
         '
@@ -406,10 +410,10 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Label2 As Label
+    Friend WithEvents LabelCPK2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
+    Friend WithEvents LabelCP2 As Label
     Friend WithEvents Chart2 As DataVisualization.Charting.Chart
 End Class

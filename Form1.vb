@@ -11,8 +11,8 @@ Public Class Form1
     End Sub
 
     Const d2 As Double = 1.128F
-
-
+    Const d4 As Double = 3.267F
+    Const D3 As Double = 0F
 
     Public main_chart_points As New DataVisualization.Charting.Series
 
@@ -21,11 +21,16 @@ Public Class Form1
     Public UCL_chart_points As New DataVisualization.Charting.Series
     Public LCL_chart_points As New DataVisualization.Charting.Series
 
+    Public main_chart_points2 As New DataVisualization.Charting.Series
+    Public main_points2 As New DataVisualization.Charting.Series
+    Public Moy_chart_points2 As New DataVisualization.Charting.Series
+    Public UCL_chart_points2 As New DataVisualization.Charting.Series
+    Public LCL_chart_points2 As New DataVisualization.Charting.Series
 
-    Sub DrawAllCharts(arrayref As Object, arrayControl As Object, arrayMR As Object)
+    Sub DrawAllCharts(arrayref As Object, arrayControl As Object, etendue As Object)
 
-
-        ' ============================================      DRAW MAIN CHART 
+        ' ================================================================================================================
+        ' ============================================      DRAW MAIN CHART ===================================================
 
 
         DrawChart(main_chart_points, "CONTROLLED 1", arrayref, arrayControl, SeriesChartType.FastLine, Color.ForestGreen, 1.3F)
@@ -40,21 +45,60 @@ Public Class Form1
 
         DrawHorizantalLine(Moy_chart_points, "Moy", arrayref, Moy(arrayControl), SeriesChartType.Line, Color.Blue, 1.8F)
 
-        '===================================== DRAW UCL and LCL
-        DrawHorizantalLine(UCL_chart_points, "UCL", arrayref, (Moy(arrayControl) + 3 * Moy(arrayMR)) / d2, SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
-        DrawHorizantalLine(LCL_chart_points, "LCL", arrayref, (Moy(arrayControl) - 3 * Moy(arrayMR)) / d2, SeriesChartType.FastLine, Color.Red, 1.5)
+        '===================================== DRAW LSC and LIC
+        DrawHorizantalLine(UCL_chart_points, "LSC", arrayref, (Moy(arrayControl) + 3 * Moy(etendue)) / d2, SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
+        DrawHorizantalLine(LCL_chart_points, "LCL", arrayref, (Moy(arrayControl) - 3 * Moy(etendue)) / d2, SeriesChartType.FastLine, Color.Red, 1.5)
+
+        ' ==================================== TEMP UCL AND LCL
+
+        'DrawHorizantalLine(UCL_chart_points, "LSC", arrayref, (Moy(arrayControl) + 3 * 7) / d2, SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
+        'DrawHorizantalLine(LCL_chart_points, "LCL", arrayref, (Moy(arrayControl) - 3 * 7) / d2, SeriesChartType.FastLine, Color.Red, 1.5)
 
         labelCP.Invoke(Sub()
-                           labelCP.Text = (Convert.ToInt32(TextboxUSL.Text) - Convert.ToInt32(TextboxLSL.Text)) / Moy(arrayMR) / d2
+                           labelCP.Text = (Convert.ToInt32(TextboxUSL.Text) - Convert.ToInt32(TextboxLSL.Text)) / Moy(etendue) / d2
                        End Sub)
         LabelCPk.Invoke(Sub()
-                            Dim val1 = (Moy(arrayControl) - Convert.ToInt32(TextboxLSL.Text)) / 3 * Moy(arrayMR) / d2
-                            Dim val2 = (Convert.ToInt32(TextboxUSL.Text) - Moy(arrayControl)) / 3 * Moy(arrayMR) / d2
+                            Dim val1 = (Moy(arrayControl) - Convert.ToInt32(TextboxLSL.Text)) / 3 * Moy(etendue) / d2
+                            Dim val2 = (Convert.ToInt32(TextboxUSL.Text) - Moy(arrayControl)) / 3 * Moy(etendue) / d2
                             LabelCPk.Text = Math.Min(val1, val2)
                         End Sub)
 
         Chart1.ChartAreas(0).AxisX.MajorGrid.LineDashStyle = ChartDashStyle.DashDot
         Chart1.ChartAreas(0).AxisY.MajorGrid.LineDashStyle = ChartDashStyle.DashDot
+
+
+        ' ================================================================================================================
+        ' ============================================      DRAW etendue CHART ===========================================
+
+        DrawChart(main_chart_points2, "CONTROLLED 1", arrayref, etendue, SeriesChartType.FastLine, Color.ForestGreen, 1.3F)
+
+        '================================================== DRAW MAIN CHART POINTS 
+
+
+
+        DrawChart(main_points2, "CONTROLED points", arrayref, etendue, SeriesChartType.Point, Color.ForestGreen, 2.5F)
+
+        ' ==================================== DRAW MOY (average)
+
+        DrawHorizantalLine(Moy_chart_points2, "Moy", arrayref, Moy(etendue), SeriesChartType.Line, Color.Blue, 1.8F)
+
+        '===================================== DRAW LSC and LIC
+        DrawHorizantalLine(UCL_chart_points2, "LSC", arrayref, d4 * Moy(arrayControl), SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
+        DrawHorizantalLine(LCL_chart_points2, "LCL", arrayref, D3 * Moy(arrayControl), SeriesChartType.FastLine, Color.Red, 1.5)
+
+
+        ' ==============://///////////// CHANGE LABEL NAME AND CALC CPK  &&..
+        labelCP.Invoke(Sub()
+                           LabelCP2.Text = (Convert.ToInt32(TextboxUSL.Text) - Convert.ToInt32(TextboxLSL.Text)) / Moy(etendue) / d2
+                       End Sub)
+        LabelCPk.Invoke(Sub()
+                            Dim val1 = (Moy(arrayControl) - Convert.ToInt32(TextboxLSL.Text)) / 3 * Moy(etendue) / d2
+                            Dim val2 = (Convert.ToInt32(TextboxUSL.Text) - Moy(arrayControl)) / 3 * Moy(etendue) / d2
+                            LabelCPK2.Text = Math.Min(val1, val2)
+                        End Sub)
+
+        Chart2.ChartAreas(0).AxisX.MajorGrid.LineDashStyle = ChartDashStyle.DashDot
+        Chart2.ChartAreas(0).AxisY.MajorGrid.LineDashStyle = ChartDashStyle.DashDot
 
 
     End Sub
@@ -72,8 +116,6 @@ Public Class Form1
 
 
         Next
-
-
     End Sub
     Public Sub DrawHorizantalLine(chart As DataVisualization.Charting.Series, name As String, refarray As Array, ControlData As Integer, ChartType As SeriesChartType, color As Color, Border As Double)
         chart.Points.Clear()
@@ -117,6 +159,17 @@ Public Class Form1
             UCL_chart_points.Name = "UCL CHART"
             Chart1.Series.Add(LCL_chart_points)
             LCL_chart_points.Name = "LCL CHART"
+            ' =============== init chart2
+            Chart2.Series.Add(main_chart_points2)
+            main_chart_points.Name = "MAIN CHART"
+            Chart2.Series.Add(Moy_chart_points2)
+            Moy_chart_points.Name = "MOY"
+            Chart2.Series.Add(main_points2)
+            main_points.Name = "MAIN CHART POINTS"
+            Chart2.Series.Add(UCL_chart_points2)
+            UCL_chart_points.Name = "UCL CHART"
+            Chart2.Series.Add(LCL_chart_points2)
+            LCL_chart_points.Name = "LCL CHART"
         Catch ex As Exception
             'MsgBox(ex.Message)
         End Try
@@ -148,7 +201,7 @@ Public Class Form1
     Sub MainStart()
 
         Try
-            xlColumn = Options.ColumnFromChar(Options.Column1)
+
             WorksheetName = Options.SheetName
             Filepath = My.Application.Info.DirectoryPath + "\" + Options.FilePath
 
@@ -167,6 +220,8 @@ Public Class Form1
         'xlapp = New Application
 
         Console.WriteLine(WorksheetName + "   /  " + Filepath)
+
+
         workbook = xlapp.Workbooks.Open(Filepath)
 
         xlworksheet = workbook.Worksheets(WorksheetName)
@@ -175,7 +230,7 @@ Public Class Form1
 
 
         If Options.ReadToEnd Then
-            range = xlrange.Rows.Count
+            range = xlrange.Rows.Count + 1
         Else
             range = Options.LinesRange + 1
         End If
@@ -184,60 +239,93 @@ Public Class Form1
 
 
         Dim dataarrayRef(range + 1) As String
-        Dim dataarrayControled(range + 1) As String
-        Dim dataMR(range + 1) As Integer
-
-        '============================ populate dataarray
-
-        'For xlrow = 2 To xlrange.Rows.Count
-        '    Debug.WriteLine("test    ")
-        '    'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
-        '    If Not String.IsNullOrEmpty(xlrange.Cells(xlrow, 1).Text) Then
-        '        dataarrayRef(xlrow) = xlrange.Cells(xlrow, 1).Text
-        '    Else
-        '        dataarrayRef(xlrow) = "0"
-        '    End If
+        Dim arraymoy(range + 1) As String
+        Dim P1(range + 1) As String
+        Dim P2(range + 1) As String
+        Dim P3(range + 1) As String
+        Dim P4(range + 1) As String
+        Dim etendue(range + 1) As Integer
 
 
-        '    Debug.WriteLine(dataarrayRef(xlrow))
 
-        'Next
+        Debug.WriteLine(range & " : range")
+        ' =====================================  POPULATE FUNCTIONS p1 and ref
 
-        ' ============================== populate controled dataarray
-        'For xlrow = 2 To xlrange.Rows.Count
-        '    'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Rows(xlrow, 1))
-        '    If Not String.IsNullOrEmpty(xlrange.Cells(xlrow, xlColumn).Text) Then
-        '        dataarrayControled(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
-        '    Else
-        '        dataarrayControled(xlrow) = "0"
-        '    End If
-
-        'Next
-
-
-        ' =====================================  POPULATE FUNCTIONS
         Dim doubleTemp As Double
-        For xlrow = 2 To range + 1
+        xlColumn = Options.ColumnFromChar(Options.Column1)
+
+        For xlrow = 2 To range
             'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
             If String.IsNullOrEmpty(xlrange.Cells(xlrow, 1).Text) Or String.IsNullOrEmpty(xlrange.Cells(xlrow, xlColumn).Text) Or Not Double.TryParse(xlrange.Cells(xlrow, xlColumn).Text, doubleTemp) Then
-                dataarrayControled(xlrow) = "0"
+                P1(xlrow) = "0"
                 dataarrayRef(xlrow) = "0"
             Else
                 dataarrayRef(xlrow) = xlrange.Cells(xlrow, 1).Text
-                dataarrayControled(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
+                P1(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
             End If
         Next
-        ' ================================== populate MR
 
-        For index = 3 To UBound(dataarrayControled) - 2
-            dataMR(index) = Math.Abs(dataarrayControled(index) - dataarrayControled(index - 1)).ToString()
-            'Console.WriteLine(dataarrayControled(index).ToString() + " - " + dataarrayControled(index - 1).ToString() + " = " + dataMR(index - 1).ToString())
-            Console.WriteLine(Math.Abs(dataarrayControled(index) - dataarrayControled(index - 1)).ToString())
+        ' =====================================  POPULATE FUNCTIONS p2 
+
+        xlColumn = Options.ColumnFromChar(Options.Column2)
+
+        For xlrow = 2 To range
+            'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
+            If String.IsNullOrEmpty(xlrange.Cells(xlrow, xlColumn).Text) Or Not Double.TryParse(xlrange.Cells(xlrow, xlColumn).Text, doubleTemp) Then
+                P2(xlrow) = "0"
+
+            Else
+
+                P2(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
+            End If
+        Next
+
+        ' =====================================  POPULATE FUNCTIONS p3
+
+        xlColumn = Options.ColumnFromChar(Options.Column3)
+
+        For xlrow = 2 To range
+            'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
+            If String.IsNullOrEmpty(xlrange.Cells(xlrow, xlColumn).Text) Or Not Double.TryParse(xlrange.Cells(xlrow, xlColumn).Text, doubleTemp) Then
+                P3(xlrow) = "0"
+
+            Else
+
+                P3(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
+            End If
+        Next
+
+        ' =====================================  POPULATE FUNCTIONS p4
+
+        xlColumn = Options.ColumnFromChar(Options.Column4)
+
+        For xlrow = 2 To range
+            'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
+            If String.IsNullOrEmpty(xlrange.Cells(xlrow, xlColumn).Text) Or Not Double.TryParse(xlrange.Cells(xlrow, xlColumn).Text, doubleTemp) Then
+                P4(xlrow) = "0"
+
+            Else
+
+                P4(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
+            End If
+        Next
+
+        ' ================================== calc and populate Moy
+
+        For xlrow = 2 To range
+            arraymoy(xlrow) = (Convert.ToInt32(P1(xlrow)) + Convert.ToInt32(P2(xlrow)) + Convert.ToInt32(P3(xlrow)) + Convert.ToInt32(P4(xlrow))) / 4
+            Debug.WriteLine(arraymoy(xlrow))
+        Next
+
+        ' ================================= calculate and populate "etendue"
+
+        For xlrow = 3 To range
+            etendue(xlrow) = Math.Abs(arraymoy(xlrow) - arraymoy(xlrow - 1))
         Next
 
         Try
             Chart1.Invoke(Sub()
-                              DrawAllCharts(dataarrayRef, dataarrayControled, dataMR)
+                              DrawAllCharts(dataarrayRef, arraymoy, etendue)
                           End Sub)
 
         Catch ex As Exception
@@ -246,7 +334,6 @@ Public Class Form1
         End Try
 
     End Sub
-
 
 
 
