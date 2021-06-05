@@ -48,7 +48,7 @@
         End If
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         'MsgBox(Options.ColumnFromChar(TextBoxCol1.Text).ToString())
         'MsgBox(Options.CharFromInt((Convert.ToInt32(TextBoxCol2.Text)) - 1).ToString())
 

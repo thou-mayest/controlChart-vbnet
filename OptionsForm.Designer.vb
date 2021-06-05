@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class OptionsForm
     Inherits System.Windows.Forms.Form
 
     'Form remplace la méthode Dispose pour nettoyer la liste des composants.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class OptionsForm
     'REMARQUE : la procédure suivante est requise par le Concepteur Windows Form
     'Elle peut être modifiée à l'aide du Concepteur Windows Form.  
     'Ne la modifiez pas à l'aide de l'éditeur de code.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBoxSheetName = New System.Windows.Forms.TextBox()
@@ -35,7 +35,6 @@ Partial Class OptionsForm
         Me.TextBoxCol2 = New System.Windows.Forms.TextBox()
         Me.TextBoxCol3 = New System.Windows.Forms.TextBox()
         Me.TextBoxCol4 = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label3
@@ -149,21 +148,11 @@ Partial Class OptionsForm
         Me.TextBoxCol4.TabIndex = 23
         Me.TextBoxCol4.Text = "D"
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(130, 200)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 24
-        Me.Button2.Text = "test"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'OptionsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(388, 236)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.TextBoxCol4)
         Me.Controls.Add(Me.TextBoxCol3)
         Me.Controls.Add(Me.TextBoxCol2)
@@ -183,7 +172,7 @@ Partial Class OptionsForm
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "OptionsForm"
+        Me.Text = "Options"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -202,5 +191,4 @@ Partial Class OptionsForm
     Friend WithEvents TextBoxCol2 As TextBox
     Friend WithEvents TextBoxCol3 As TextBox
     Friend WithEvents TextBoxCol4 As TextBox
-    Friend WithEvents Button2 As Button
 End Class
