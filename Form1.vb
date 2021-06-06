@@ -197,6 +197,12 @@ Public Class Form1
             chart.Points.AddXY(refarray(index), ControlData(index))
 
         Next
+
+
+    End Sub
+
+    Public Sub DrawPoints()
+
     End Sub
     Public Sub DrawHorizantalLine(chart As DataVisualization.Charting.Series, name As String, refarray As Array, ControlData As Double, ChartType As SeriesChartType, color As Color, Border As Double)
         chart.Points.Clear()
@@ -207,11 +213,7 @@ Public Class Form1
 
         For index = 2 To UBound(refarray) - 1
             chart.Points.AddXY(refarray(index), ControlData)
-            'chart.Points.AddXY(refarray(index), 0.002)
         Next
-
-
-
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
