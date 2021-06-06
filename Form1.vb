@@ -13,6 +13,10 @@ Public Class Form1
     Const d2 As Double = 1.128F
     Const d4 As Double = 3.267F
     Const D3 As Double = 0F
+    Dim sigma As Double
+    Dim cp As Double
+    Dim cpk As Double
+    Dim cpm As Double
 
     Public main_chart_points As New DataVisualization.Charting.Series
 
@@ -31,7 +35,7 @@ Public Class Form1
 
         ' ================================================================================================================
         ' ============================================      DRAW MAIN CHART ===================================================
-
+        sigma = Moy(etendue) / d2
 
         DrawChart(main_chart_points, "CONTROLLED 1", arrayref, arrayControl, SeriesChartType.FastLine, Color.ForestGreen, 1.3F)
 
@@ -47,25 +51,60 @@ Public Class Form1
         Debug.WriteLine(Moy(arrayControl) & " : this is moyint")
 
         '===================================== DRAW LSC and LIC
-        DrawHorizantalLine(UCL_chart_points, "LSC", arrayref, (Moy(arrayControl) + 3 * Moy(etendue)) / d2, SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
-        DrawHorizantalLine(LCL_chart_points, "LCL", arrayref, (Moy(arrayControl) - 3 * Moy(etendue)) / d2, SeriesChartType.FastLine, Color.Red, 1.5)
+        DrawHorizantalLine(UCL_chart_points, "LSC", arrayref, (Moy(arrayControl) + 3 * sigma), SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
+        DrawHorizantalLine(LCL_chart_points, "LCL", arrayref, (Moy(arrayControl) - 3 * sigma), SeriesChartType.FastLine, Color.Red, 1.5)
 
-        ' ==================================== TEMP UCL AND LCL
-
-        'DrawHorizantalLine(UCL_chart_points, "LSC", arrayref, (Moy(arrayControl) + 3 * 7) / d2, SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
-        'DrawHorizantalLine(LCL_chart_points, "LCL", arrayref, (Moy(arrayControl) - 3 * 7) / d2, SeriesChartType.FastLine, Color.Red, 1.5)
 
         labelCP.Invoke(Sub()
-                           labelCP.Text = (Convert.ToInt32(TextboxUSL.Text) - Convert.ToInt32(TextboxLSL.Text)) / Moy(etendue) / d2
+                           cp = (Convert.ToDouble(TextboxTS.Text) - Convert.ToDouble(TextboxTI.Text)) / 6 * sigma
+                           labelCP.Text = String.Format("{0:0.00}", cp)
+
+                           If cp < 1.33 Then
+                               labelCP.ForeColor = Color.Red
+                           ElseIf cp > 1.67 Then
+                               labelCP.ForeColor = Color.ForestGreen
+
+                           Else
+                               labelCP.ForeColor = Color.DarkOrange
+                           End If
+
+
+
                        End Sub)
         LabelCPk.Invoke(Sub()
-                            Dim val1 = (Moy(arrayControl) - Convert.ToInt32(TextboxLSL.Text)) / 3 * Moy(etendue) / d2
-                            Dim val2 = (Convert.ToInt32(TextboxUSL.Text) - Moy(arrayControl)) / 3 * Moy(etendue) / d2
-                            LabelCPk.Text = Math.Min(val1, val2)
+                            Dim val1 = (Moy(arrayControl) - Convert.ToDouble(TextboxTI.Text)) / 3 * sigma
+                            Dim val2 = (Convert.ToDouble(TextboxTS.Text) - Moy(arrayControl)) / 3 * sigma
+                            cpk = Math.Min(val1, val2)
+                            LabelCPk.Text = String.Format("{0:0.00}", cpk)
+                            If cpk < 1.33 Then
+                                LabelCPk.ForeColor = Color.Red
+                            ElseIf cp > 1.67 Then
+                                LabelCPk.ForeColor = Color.ForestGreen
+
+                            Else
+                                LabelCPk.ForeColor = Color.DarkOrange
+                            End If
+
+                        End Sub)
+
+        LabelCpm.Invoke(Sub()
+                            cpm = cp / (Math.Sqrt(1 + 9 * Math.Pow((cp - cpk), 2)))
+                            LabelCpm.Text = String.Format("{0:0.00}", cpm)
+
+                            If cpm < 1.33 Then
+                                LabelCpm.ForeColor = Color.Red
+                            ElseIf cp > 1.67 Then
+                                LabelCpm.ForeColor = Color.ForestGreen
+
+                            Else
+                                LabelCpm.ForeColor = Color.DarkOrange
+                            End If
                         End Sub)
 
         Chart1.ChartAreas(0).AxisX.MajorGrid.LineDashStyle = ChartDashStyle.DashDot
         Chart1.ChartAreas(0).AxisY.MajorGrid.LineDashStyle = ChartDashStyle.DashDot
+
+
 
         'Chart1.ChartAreas(0).AxisY.Maximum = 0.5
         ' ================================================================================================================
@@ -89,14 +128,46 @@ Public Class Form1
         Debug.WriteLine(d4 * Moy(etendue) & " : LSC")
 
         ' ==============://///////////// CHANGE LABEL NAME AND CALC CPK  &&..
-        labelCP.Invoke(Sub()
-                           LabelCP2.Text = (Convert.ToInt32(TextboxUSL.Text) - Convert.ToInt32(TextboxLSL.Text)) / Moy(etendue) / d2
-                       End Sub)
-        LabelCPk.Invoke(Sub()
-                            Dim val1 = (Moy(arrayControl) - Convert.ToInt32(TextboxLSL.Text)) / 3 * Moy(etendue) / d2
+        LabelCP2.Invoke(Sub()
+                            cp = (Convert.ToDouble(TextboxTS2.Text) - Convert.ToDouble(TextboxTI2.Text)) / 6 * sigma
+                            LabelCP2.Text = String.Format("{0:0.00}", cp)
+                            If cp < 1.33 Then
+                                LabelCP2.ForeColor = Color.Red
+                            ElseIf cp > 1.67 Then
+                                LabelCP2.ForeColor = Color.ForestGreen
 
-                            Dim val2 = (Convert.ToInt32(TextboxUSL.Text) - Moy(arrayControl)) / 3 * Moy(etendue) / d2
-                            LabelCPK2.Text = Math.Min(val1, val2)
+                            Else
+                                LabelCP2.ForeColor = Color.DarkOrange
+                            End If
+                        End Sub)
+        LabelCPK2.Invoke(Sub()
+                             Dim val1 = (Moy(arrayControl) - Convert.ToDouble(TextboxTI2.Text)) / 3 * sigma
+                             Dim val2 = (Convert.ToDouble(TextboxTS2.Text) - Moy(arrayControl)) / 3 * sigma
+                             cpk = Math.Min(val1, val2)
+                             LabelCPK2.Text = String.Format("{0:0.00}", cpk)
+                             If cpk < 1.33 Then
+                                 LabelCPK2.ForeColor = Color.Red
+                             ElseIf cp > 1.67 Then
+                                 LabelCPK2.ForeColor = Color.ForestGreen
+
+                             Else
+                                 LabelCPK2.ForeColor = Color.DarkOrange
+                             End If
+
+                         End Sub)
+
+        LabelCpm.Invoke(Sub()
+                            cpm = cp / (Math.Sqrt(1 + 9 * Math.Pow((cp - cpk), 2)))
+                            LabelCpm2.Text = String.Format("{0:0.00}", cpm)
+
+                            If cpm < 1.33 Then
+                                LabelCpm2.ForeColor = Color.Red
+                            ElseIf cp > 1.67 Then
+                                LabelCpm2.ForeColor = Color.ForestGreen
+
+                            Else
+                                LabelCpm2.ForeColor = Color.DarkOrange
+                            End If
                         End Sub)
 
         Chart2.ChartAreas(0).AxisX.MajorGrid.LineDashStyle = ChartDashStyle.DashDot
@@ -299,7 +370,7 @@ Public Class Form1
 
         xlColumn = Options.ColumnFromChar(Options.Column4)
 
-            For xlrow = 2 To range
+        For xlrow = 2 To range
             'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
             If xlColumn < 0 Then
                 P4(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
@@ -412,21 +483,21 @@ Public Class Form1
 
     End Sub
 
-    Private Sub TextboxUSL_Leave(sender As Object, e As EventArgs) Handles TextboxUSL.Leave
+    Private Sub TextboxUSL_Leave(sender As Object, e As EventArgs) Handles TextboxTS.Leave
         Try
-            Convert.ToInt32(TextboxUSL.Text)
+            Convert.ToInt32(TextboxTS.Text)
         Catch ex As Exception
             MsgBox("USL field should be an int")
-            TextboxUSL.Select()
+            TextboxTS.Select()
         End Try
     End Sub
 
-    Private Sub TextboxLSL_Leave(sender As Object, e As EventArgs) Handles TextboxLSL.Leave
+    Private Sub TextboxLSL_Leave(sender As Object, e As EventArgs) Handles TextboxTI.Leave
         Try
-            Convert.ToInt32(TextboxLSL.Text)
+            Convert.ToInt32(TextboxTI.Text)
         Catch ex As Exception
             MsgBox("LSL field should be an int")
-            TextboxLSL.Select()
+            TextboxTI.Select()
         End Try
     End Sub
 
@@ -438,15 +509,15 @@ Public Class Form1
 
     End Sub
 
-    Private Sub TextboxUSL_TextChanged(sender As Object, e As EventArgs) Handles TextboxUSL.TextChanged
+    Private Sub TextboxUSL_TextChanged(sender As Object, e As EventArgs) Handles TextboxTS.TextChanged
 
     End Sub
 
-    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click, Label12.Click
 
     End Sub
 
-    Private Sub labelCP_Click(sender As Object, e As EventArgs) Handles labelCP.Click
+    Private Sub labelCP_Click(sender As Object, e As EventArgs) Handles labelCP.Click, LabelCpm.Click
 
     End Sub
 End Class

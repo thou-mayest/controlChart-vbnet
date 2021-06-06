@@ -25,14 +25,15 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.TextboxUSL = New System.Windows.Forms.TextBox()
-        Me.TextboxLSL = New System.Windows.Forms.TextBox()
+        Me.TextboxTS = New System.Windows.Forms.TextBox()
+        Me.TextboxTI = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.labelCP = New System.Windows.Forms.Label()
@@ -44,17 +45,21 @@ Partial Class Form1
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.Title1 = New System.Windows.Forms.Label()
+        Me.Title2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextboxTS2 = New System.Windows.Forms.TextBox()
+        Me.TextboxTI2 = New System.Windows.Forms.TextBox()
         Me.LabelCPK2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.LabelCP2 = New System.Windows.Forms.Label()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Title1 = New System.Windows.Forms.Label()
-        Me.Title2 = New System.Windows.Forms.Label()
+        Me.LabelCpm2 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.LabelCpm = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -83,6 +88,8 @@ Partial Class Form1
         Me.Chart1.Size = New System.Drawing.Size(1172, 216)
         Me.Chart1.TabIndex = 1
         Me.Chart1.Text = "Chart1"
+        Title3.Name = "Title1"
+        Me.Chart1.Titles.Add(Title3)
         '
         'Button1
         '
@@ -107,23 +114,23 @@ Partial Class Form1
         'Timer1
         '
         '
-        'TextboxUSL
+        'TextboxTS
         '
-        Me.TextboxUSL.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextboxUSL.Location = New System.Drawing.Point(1083, 132)
-        Me.TextboxUSL.Name = "TextboxUSL"
-        Me.TextboxUSL.Size = New System.Drawing.Size(68, 20)
-        Me.TextboxUSL.TabIndex = 11
-        Me.TextboxUSL.Text = "0"
+        Me.TextboxTS.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextboxTS.Location = New System.Drawing.Point(1083, 132)
+        Me.TextboxTS.Name = "TextboxTS"
+        Me.TextboxTS.Size = New System.Drawing.Size(68, 20)
+        Me.TextboxTS.TabIndex = 11
+        Me.TextboxTS.Text = "0"
         '
-        'TextboxLSL
+        'TextboxTI
         '
-        Me.TextboxLSL.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextboxLSL.Location = New System.Drawing.Point(1083, 158)
-        Me.TextboxLSL.Name = "TextboxLSL"
-        Me.TextboxLSL.Size = New System.Drawing.Size(68, 20)
-        Me.TextboxLSL.TabIndex = 12
-        Me.TextboxLSL.Text = "0"
+        Me.TextboxTI.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextboxTI.Location = New System.Drawing.Point(1083, 158)
+        Me.TextboxTI.Name = "TextboxTI"
+        Me.TextboxTI.Size = New System.Drawing.Size(68, 20)
+        Me.TextboxTI.TabIndex = 12
+        Me.TextboxTI.Text = "0"
         '
         'Label4
         '
@@ -152,9 +159,10 @@ Partial Class Form1
         Me.labelCP.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labelCP.AutoSize = True
         Me.labelCP.BackColor = System.Drawing.Color.White
-        Me.labelCP.Location = New System.Drawing.Point(1034, 208)
+        Me.labelCP.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelCP.Location = New System.Drawing.Point(1045, 208)
         Me.labelCP.Name = "labelCP"
-        Me.labelCP.Size = New System.Drawing.Size(13, 13)
+        Me.labelCP.Size = New System.Drawing.Size(15, 16)
         Me.labelCP.TabIndex = 9
         Me.labelCP.Text = "0"
         '
@@ -163,9 +171,10 @@ Partial Class Form1
         Me.LabelCPk.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelCPk.AutoSize = True
         Me.LabelCPk.BackColor = System.Drawing.Color.White
-        Me.LabelCPk.Location = New System.Drawing.Point(1034, 221)
+        Me.LabelCPk.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCPk.Location = New System.Drawing.Point(1045, 221)
         Me.LabelCPk.Name = "LabelCPk"
-        Me.LabelCPk.Size = New System.Drawing.Size(13, 13)
+        Me.LabelCPk.Size = New System.Drawing.Size(15, 16)
         Me.LabelCPk.TabIndex = 13
         Me.LabelCPk.Text = "0"
         '
@@ -174,9 +183,10 @@ Partial Class Form1
         Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.White
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(1007, 208)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(24, 13)
+        Me.Label7.Size = New System.Drawing.Size(29, 16)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "CP:"
         '
@@ -185,9 +195,10 @@ Partial Class Form1
         Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.White
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(1007, 221)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(30, 13)
+        Me.Label8.Size = New System.Drawing.Size(36, 16)
         Me.Label8.TabIndex = 13
         Me.Label8.Text = "CPk:"
         '
@@ -236,11 +247,13 @@ Partial Class Form1
         Me.SplitContainer1.Panel1.BackColor = System.Drawing.Color.Silver
         Me.SplitContainer1.Panel1.Controls.Add(Me.Title1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label8)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.TextboxUSL)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.TextboxLSL)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.TextboxTS)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.TextboxTI)
         Me.SplitContainer1.Panel1.Controls.Add(Me.LabelCPk)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label5)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Label12)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label7)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.LabelCpm)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label4)
         Me.SplitContainer1.Panel1.Controls.Add(Me.labelCP)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Chart1)
@@ -250,120 +263,19 @@ Partial Class Form1
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.Color.Silver
         Me.SplitContainer1.Panel2.Controls.Add(Me.Title2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label1)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.TextBox1)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.TextBox2)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.TextboxTS2)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.TextboxTI2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.LabelCPK2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label3)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Label10)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label6)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.LabelCpm2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label9)
         Me.SplitContainer1.Panel2.Controls.Add(Me.LabelCP2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Chart2)
         Me.SplitContainer1.Size = New System.Drawing.Size(1178, 492)
         Me.SplitContainer1.SplitterDistance = 253
         Me.SplitContainer1.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(1007, 207)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(30, 13)
-        Me.Label1.TabIndex = 21
-        Me.Label1.Text = "CPk:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Location = New System.Drawing.Point(1083, 127)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(68, 20)
-        Me.TextBox1.TabIndex = 19
-        Me.TextBox1.Text = "0"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox2.Location = New System.Drawing.Point(1083, 153)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(68, 20)
-        Me.TextBox2.TabIndex = 20
-        Me.TextBox2.Text = "0"
-        '
-        'LabelCPK2
-        '
-        Me.LabelCPK2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.LabelCPK2.AutoSize = True
-        Me.LabelCPK2.BackColor = System.Drawing.Color.White
-        Me.LabelCPK2.Location = New System.Drawing.Point(1034, 207)
-        Me.LabelCPK2.Name = "LabelCPK2"
-        Me.LabelCPK2.Size = New System.Drawing.Size(13, 13)
-        Me.LabelCPK2.TabIndex = 22
-        Me.LabelCPK2.Text = "0"
-        '
-        'Label3
-        '
-        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(1006, 156)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 13)
-        Me.Label3.TabIndex = 15
-        Me.Label3.Text = "tolérance inf: "
-        '
-        'Label6
-        '
-        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(1007, 194)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(24, 13)
-        Me.Label6.TabIndex = 16
-        Me.Label6.Text = "CP:"
-        '
-        'Label9
-        '
-        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(1006, 130)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(77, 13)
-        Me.Label9.TabIndex = 17
-        Me.Label9.Text = "tolérance sup: "
-        '
-        'LabelCP2
-        '
-        Me.LabelCP2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.LabelCP2.AutoSize = True
-        Me.LabelCP2.BackColor = System.Drawing.Color.White
-        Me.LabelCP2.Location = New System.Drawing.Point(1034, 194)
-        Me.LabelCP2.Name = "LabelCP2"
-        Me.LabelCP2.Size = New System.Drawing.Size(13, 13)
-        Me.LabelCP2.TabIndex = 18
-        Me.LabelCP2.Text = "0"
-        '
-        'Chart2
-        '
-        Me.Chart2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Chart2.BorderlineWidth = 0
-        Me.Chart2.BorderSkin.BackColor = System.Drawing.Color.White
-        Me.Chart2.BorderSkin.PageColor = System.Drawing.Color.Silver
-        Me.Chart2.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Raised
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend2)
-        Me.Chart2.Location = New System.Drawing.Point(3, 34)
-        Me.Chart2.Name = "Chart2"
-        Me.Chart2.Size = New System.Drawing.Size(1172, 201)
-        Me.Chart2.TabIndex = 14
-        Me.Chart2.Text = "Chart2"
         '
         'Title1
         '
@@ -390,6 +302,161 @@ Partial Class Form1
         Me.Title2.Size = New System.Drawing.Size(365, 31)
         Me.Title2.TabIndex = 9
         Me.Title2.Text = "Carte des étendues glissants"
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.White
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(1007, 207)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(36, 16)
+        Me.Label1.TabIndex = 21
+        Me.Label1.Text = "CPk:"
+        '
+        'TextboxTS2
+        '
+        Me.TextboxTS2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextboxTS2.Location = New System.Drawing.Point(1083, 127)
+        Me.TextboxTS2.Name = "TextboxTS2"
+        Me.TextboxTS2.Size = New System.Drawing.Size(68, 20)
+        Me.TextboxTS2.TabIndex = 19
+        Me.TextboxTS2.Text = "0"
+        '
+        'TextboxTI2
+        '
+        Me.TextboxTI2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextboxTI2.Location = New System.Drawing.Point(1083, 153)
+        Me.TextboxTI2.Name = "TextboxTI2"
+        Me.TextboxTI2.Size = New System.Drawing.Size(68, 20)
+        Me.TextboxTI2.TabIndex = 20
+        Me.TextboxTI2.Text = "0"
+        '
+        'LabelCPK2
+        '
+        Me.LabelCPK2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelCPK2.AutoSize = True
+        Me.LabelCPK2.BackColor = System.Drawing.Color.White
+        Me.LabelCPK2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCPK2.Location = New System.Drawing.Point(1045, 207)
+        Me.LabelCPK2.Name = "LabelCPK2"
+        Me.LabelCPK2.Size = New System.Drawing.Size(15, 16)
+        Me.LabelCPK2.TabIndex = 22
+        Me.LabelCPK2.Text = "0"
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(1006, 156)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(71, 13)
+        Me.Label3.TabIndex = 15
+        Me.Label3.Text = "tolérance inf: "
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.White
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(1007, 194)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(29, 16)
+        Me.Label6.TabIndex = 16
+        Me.Label6.Text = "CP:"
+        '
+        'Label9
+        '
+        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(1006, 130)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(77, 13)
+        Me.Label9.TabIndex = 17
+        Me.Label9.Text = "tolérance sup: "
+        '
+        'LabelCP2
+        '
+        Me.LabelCP2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelCP2.AutoSize = True
+        Me.LabelCP2.BackColor = System.Drawing.Color.White
+        Me.LabelCP2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCP2.Location = New System.Drawing.Point(1045, 194)
+        Me.LabelCP2.Name = "LabelCP2"
+        Me.LabelCP2.Size = New System.Drawing.Size(15, 16)
+        Me.LabelCP2.TabIndex = 18
+        Me.LabelCP2.Text = "0"
+        '
+        'Chart2
+        '
+        Me.Chart2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Chart2.BorderlineWidth = 0
+        Me.Chart2.BorderSkin.BackColor = System.Drawing.Color.White
+        Me.Chart2.BorderSkin.PageColor = System.Drawing.Color.Silver
+        Me.Chart2.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Raised
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend2)
+        Me.Chart2.Location = New System.Drawing.Point(3, 34)
+        Me.Chart2.Name = "Chart2"
+        Me.Chart2.Size = New System.Drawing.Size(1172, 201)
+        Me.Chart2.TabIndex = 14
+        Me.Chart2.Text = "Chart2"
+        '
+        'LabelCpm2
+        '
+        Me.LabelCpm2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelCpm2.AutoSize = True
+        Me.LabelCpm2.BackColor = System.Drawing.Color.White
+        Me.LabelCpm2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCpm2.Location = New System.Drawing.Point(1045, 181)
+        Me.LabelCpm2.Name = "LabelCpm2"
+        Me.LabelCpm2.Size = New System.Drawing.Size(15, 16)
+        Me.LabelCpm2.TabIndex = 18
+        Me.LabelCpm2.Text = "0"
+        '
+        'Label10
+        '
+        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.White
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(1006, 181)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(40, 16)
+        Me.Label10.TabIndex = 16
+        Me.Label10.Text = "CPm:"
+        '
+        'LabelCpm
+        '
+        Me.LabelCpm.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelCpm.AutoSize = True
+        Me.LabelCpm.BackColor = System.Drawing.Color.White
+        Me.LabelCpm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCpm.Location = New System.Drawing.Point(1045, 195)
+        Me.LabelCpm.Name = "LabelCpm"
+        Me.LabelCpm.Size = New System.Drawing.Size(15, 16)
+        Me.LabelCpm.TabIndex = 9
+        Me.LabelCpm.Text = "0"
+        '
+        'Label12
+        '
+        Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.Color.White
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(1007, 195)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(40, 16)
+        Me.Label12.TabIndex = 9
+        Me.Label12.Text = "CPm:"
         '
         'Form1
         '
@@ -426,8 +493,8 @@ Partial Class Form1
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents TextboxUSL As TextBox
-    Friend WithEvents TextboxLSL As TextBox
+    Friend WithEvents TextboxTS As TextBox
+    Friend WithEvents TextboxTI As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents labelCP As Label
@@ -440,8 +507,8 @@ Partial Class Form1
     Friend WithEvents Panel1 As Panel
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextboxTS2 As TextBox
+    Friend WithEvents TextboxTI2 As TextBox
     Friend WithEvents LabelCPK2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label6 As Label
@@ -450,4 +517,8 @@ Partial Class Form1
     Friend WithEvents Chart2 As DataVisualization.Charting.Chart
     Friend WithEvents Title1 As Label
     Friend WithEvents Title2 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents LabelCpm As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents LabelCpm2 As Label
 End Class
