@@ -53,6 +53,8 @@ Partial Class Form1
         Me.Label9 = New System.Windows.Forms.Label()
         Me.LabelCP2 = New System.Windows.Forms.Label()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Title1 = New System.Windows.Forms.Label()
+        Me.Title2 = New System.Windows.Forms.Label()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -70,15 +72,15 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Chart1.BorderlineWidth = 0
         Me.Chart1.BorderSkin.BackColor = System.Drawing.Color.White
-        Me.Chart1.BorderSkin.PageColor = System.Drawing.Color.DimGray
+        Me.Chart1.BorderSkin.PageColor = System.Drawing.Color.Silver
         Me.Chart1.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Raised
         ChartArea1.Name = "ChartArea1"
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(3, 3)
+        Me.Chart1.Location = New System.Drawing.Point(3, 34)
         Me.Chart1.Name = "Chart1"
-        Me.Chart1.Size = New System.Drawing.Size(1172, 247)
+        Me.Chart1.Size = New System.Drawing.Size(1172, 216)
         Me.Chart1.TabIndex = 1
         Me.Chart1.Text = "Chart1"
         '
@@ -108,7 +110,7 @@ Partial Class Form1
         'TextboxUSL
         '
         Me.TextboxUSL.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextboxUSL.Location = New System.Drawing.Point(1083, 121)
+        Me.TextboxUSL.Location = New System.Drawing.Point(1083, 132)
         Me.TextboxUSL.Name = "TextboxUSL"
         Me.TextboxUSL.Size = New System.Drawing.Size(68, 20)
         Me.TextboxUSL.TabIndex = 11
@@ -117,7 +119,7 @@ Partial Class Form1
         'TextboxLSL
         '
         Me.TextboxLSL.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextboxLSL.Location = New System.Drawing.Point(1083, 154)
+        Me.TextboxLSL.Location = New System.Drawing.Point(1083, 158)
         Me.TextboxLSL.Name = "TextboxLSL"
         Me.TextboxLSL.Size = New System.Drawing.Size(68, 20)
         Me.TextboxLSL.TabIndex = 12
@@ -128,29 +130,29 @@ Partial Class Form1
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(1051, 126)
+        Me.Label4.Location = New System.Drawing.Point(1007, 135)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(28, 13)
+        Me.Label4.Size = New System.Drawing.Size(74, 13)
         Me.Label4.TabIndex = 9
-        Me.Label4.Text = "USL"
+        Me.Label4.Text = "tolérance sup:"
         '
         'Label5
         '
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(1051, 157)
+        Me.Label5.Location = New System.Drawing.Point(1007, 161)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(26, 13)
+        Me.Label5.Size = New System.Drawing.Size(71, 13)
         Me.Label5.TabIndex = 9
-        Me.Label5.Text = "LSL"
+        Me.Label5.Text = "tolérance inf: "
         '
         'labelCP
         '
         Me.labelCP.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labelCP.AutoSize = True
         Me.labelCP.BackColor = System.Drawing.Color.White
-        Me.labelCP.Location = New System.Drawing.Point(1080, 188)
+        Me.labelCP.Location = New System.Drawing.Point(1034, 208)
         Me.labelCP.Name = "labelCP"
         Me.labelCP.Size = New System.Drawing.Size(13, 13)
         Me.labelCP.TabIndex = 9
@@ -161,7 +163,7 @@ Partial Class Form1
         Me.LabelCPk.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelCPk.AutoSize = True
         Me.LabelCPk.BackColor = System.Drawing.Color.White
-        Me.LabelCPk.Location = New System.Drawing.Point(1080, 219)
+        Me.LabelCPk.Location = New System.Drawing.Point(1034, 221)
         Me.LabelCPk.Name = "LabelCPk"
         Me.LabelCPk.Size = New System.Drawing.Size(13, 13)
         Me.LabelCPk.TabIndex = 13
@@ -172,7 +174,7 @@ Partial Class Form1
         Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(1053, 188)
+        Me.Label7.Location = New System.Drawing.Point(1007, 208)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(24, 13)
         Me.Label7.TabIndex = 9
@@ -183,7 +185,7 @@ Partial Class Form1
         Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(1053, 219)
+        Me.Label8.Location = New System.Drawing.Point(1007, 221)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(30, 13)
         Me.Label8.TabIndex = 13
@@ -231,6 +233,8 @@ Partial Class Form1
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.BackColor = System.Drawing.Color.Silver
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Title1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label8)
         Me.SplitContainer1.Panel1.Controls.Add(Me.TextboxUSL)
         Me.SplitContainer1.Panel1.Controls.Add(Me.TextboxLSL)
@@ -243,6 +247,8 @@ Partial Class Form1
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.BackColor = System.Drawing.Color.Silver
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Title2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.TextBox1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.TextBox2)
@@ -261,7 +267,7 @@ Partial Class Form1
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(1053, 207)
+        Me.Label1.Location = New System.Drawing.Point(1007, 207)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(30, 13)
         Me.Label1.TabIndex = 21
@@ -270,7 +276,7 @@ Partial Class Form1
         'TextBox1
         '
         Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Location = New System.Drawing.Point(1083, 109)
+        Me.TextBox1.Location = New System.Drawing.Point(1083, 127)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(68, 20)
         Me.TextBox1.TabIndex = 19
@@ -279,7 +285,7 @@ Partial Class Form1
         'TextBox2
         '
         Me.TextBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox2.Location = New System.Drawing.Point(1083, 142)
+        Me.TextBox2.Location = New System.Drawing.Point(1083, 153)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(68, 20)
         Me.TextBox2.TabIndex = 20
@@ -290,7 +296,7 @@ Partial Class Form1
         Me.LabelCPK2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelCPK2.AutoSize = True
         Me.LabelCPK2.BackColor = System.Drawing.Color.White
-        Me.LabelCPK2.Location = New System.Drawing.Point(1080, 207)
+        Me.LabelCPK2.Location = New System.Drawing.Point(1034, 207)
         Me.LabelCPK2.Name = "LabelCPK2"
         Me.LabelCPK2.Size = New System.Drawing.Size(13, 13)
         Me.LabelCPK2.TabIndex = 22
@@ -301,18 +307,18 @@ Partial Class Form1
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(1051, 145)
+        Me.Label3.Location = New System.Drawing.Point(1006, 156)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(26, 13)
+        Me.Label3.Size = New System.Drawing.Size(71, 13)
         Me.Label3.TabIndex = 15
-        Me.Label3.Text = "LSL"
+        Me.Label3.Text = "tolérance inf: "
         '
         'Label6
         '
         Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(1053, 176)
+        Me.Label6.Location = New System.Drawing.Point(1007, 194)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(24, 13)
         Me.Label6.TabIndex = 16
@@ -323,18 +329,18 @@ Partial Class Form1
         Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(1051, 114)
+        Me.Label9.Location = New System.Drawing.Point(1006, 130)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(28, 13)
+        Me.Label9.Size = New System.Drawing.Size(77, 13)
         Me.Label9.TabIndex = 17
-        Me.Label9.Text = "USL"
+        Me.Label9.Text = "tolérance sup: "
         '
         'LabelCP2
         '
         Me.LabelCP2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelCP2.AutoSize = True
         Me.LabelCP2.BackColor = System.Drawing.Color.White
-        Me.LabelCP2.Location = New System.Drawing.Point(1080, 176)
+        Me.LabelCP2.Location = New System.Drawing.Point(1034, 194)
         Me.LabelCP2.Name = "LabelCP2"
         Me.LabelCP2.Size = New System.Drawing.Size(13, 13)
         Me.LabelCP2.TabIndex = 18
@@ -347,23 +353,49 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Chart2.BorderlineWidth = 0
         Me.Chart2.BorderSkin.BackColor = System.Drawing.Color.White
-        Me.Chart2.BorderSkin.PageColor = System.Drawing.Color.DimGray
+        Me.Chart2.BorderSkin.PageColor = System.Drawing.Color.Silver
         Me.Chart2.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Raised
         ChartArea2.Name = "ChartArea1"
         Me.Chart2.ChartAreas.Add(ChartArea2)
         Legend2.Name = "Legend1"
         Me.Chart2.Legends.Add(Legend2)
-        Me.Chart2.Location = New System.Drawing.Point(3, 3)
+        Me.Chart2.Location = New System.Drawing.Point(3, 34)
         Me.Chart2.Name = "Chart2"
-        Me.Chart2.Size = New System.Drawing.Size(1172, 232)
+        Me.Chart2.Size = New System.Drawing.Size(1172, 201)
         Me.Chart2.TabIndex = 14
         Me.Chart2.Text = "Chart2"
+        '
+        'Title1
+        '
+        Me.Title1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Title1.AutoSize = True
+        Me.Title1.BackColor = System.Drawing.Color.Silver
+        Me.Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Title1.Location = New System.Drawing.Point(406, 0)
+        Me.Title1.Name = "Title1"
+        Me.Title1.Size = New System.Drawing.Size(271, 31)
+        Me.Title1.TabIndex = 9
+        Me.Title1.Text = "Carte des moyennes "
+        '
+        'Title2
+        '
+        Me.Title2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Title2.AutoSize = True
+        Me.Title2.BackColor = System.Drawing.Color.Silver
+        Me.Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Title2.Location = New System.Drawing.Point(365, 0)
+        Me.Title2.Name = "Title2"
+        Me.Title2.Size = New System.Drawing.Size(365, 31)
+        Me.Title2.TabIndex = 9
+        Me.Title2.Text = "Carte des étendues glissants"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.DimGray
+        Me.BackColor = System.Drawing.Color.Silver
         Me.ClientSize = New System.Drawing.Size(1178, 565)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -416,4 +448,6 @@ Partial Class Form1
     Friend WithEvents Label9 As Label
     Friend WithEvents LabelCP2 As Label
     Friend WithEvents Chart2 As DataVisualization.Charting.Chart
+    Friend WithEvents Title1 As Label
+    Friend WithEvents Title2 As Label
 End Class

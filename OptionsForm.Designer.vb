@@ -89,7 +89,7 @@ Partial Class OptionsForm
         Me.TextBoxFilePath.Name = "TextBoxFilePath"
         Me.TextBoxFilePath.Size = New System.Drawing.Size(125, 20)
         Me.TextBoxFilePath.TabIndex = 10
-        Me.TextBoxFilePath.Text = "Classeur1.xlsx"
+        Me.TextBoxFilePath.Text = "Classeur2.xlsx"
         '
         'Button1
         '
@@ -198,6 +198,7 @@ Partial Class OptionsForm
         Me.Controls.Add(Me.TextBoxCol1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBoxFilePath)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "OptionsForm"

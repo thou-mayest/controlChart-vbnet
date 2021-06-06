@@ -6,7 +6,18 @@
         Options.Column2 = TextBoxCol2.Text
         Options.Column3 = TextBoxCol3.Text
         Options.Column4 = TextBoxCol4.Text
-        Options.interval = Convert.ToInt32(TextBoxInterval.Text) * 1000
+        If Not String.IsNullOrEmpty(TextBoxCol4.Text) Then
+            If Not (Convert.ToInt32(TextBoxInterval.Text) < 1) Then
+                Options.interval = Convert.ToInt32(TextBoxInterval.Text) * 1000
+
+            Else
+                MsgBox("intervalle de temps ne peut pas etre 0")
+                Options.interval = 5 * 1000
+            End If
+
+        End If
+
+
 
         Options.LinesRange = Convert.ToInt32(TextBoxRange.Text)
 

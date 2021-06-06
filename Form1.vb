@@ -164,15 +164,15 @@ Public Class Form1
             LCL_chart_points.Name = "LCL CHART"
             ' =============== init chart2
             Chart2.Series.Add(main_chart_points2)
-            main_chart_points.Name = "MAIN CHART"
+            main_chart_points2.Name = "MAIN CHART"
             Chart2.Series.Add(Moy_chart_points2)
-            Moy_chart_points.Name = "MOY"
+            Moy_chart_points2.Name = "MOY"
             Chart2.Series.Add(main_points2)
-            main_points.Name = "MAIN CHART POINTS"
+            main_points2.Name = "MAIN CHART POINTS"
             Chart2.Series.Add(UCL_chart_points2)
-            UCL_chart_points.Name = "UCL CHART"
+            UCL_chart_points2.Name = "UCL CHART"
             Chart2.Series.Add(LCL_chart_points2)
-            LCL_chart_points.Name = "LCL CHART"
+            LCL_chart_points2.Name = "LCL CHART"
         Catch ex As Exception
             'MsgBox(ex.Message)
         End Try
@@ -299,12 +299,17 @@ Public Class Form1
 
         xlColumn = Options.ColumnFromChar(Options.Column4)
 
-        For xlrow = 2 To range
+            For xlrow = 2 To range
             'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
+            If xlColumn < 0 Then
+                P4(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
+            Else
 
-            P4(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
-
+                P4(xlrow) = "0"
+            End If
         Next
+
+
         Debug.WriteLine(P1.Length & " : p1" & dataarrayRef.Length & " : dataarrayref")
         ' ================================== calc and populate Moy
 
@@ -429,11 +434,19 @@ Public Class Form1
         OptionsForm.Show()
     End Sub
 
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click, Title2.Click, Title1.Click
 
     End Sub
 
     Private Sub TextboxUSL_TextChanged(sender As Object, e As EventArgs) Handles TextboxUSL.TextChanged
+
+    End Sub
+
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+
+    End Sub
+
+    Private Sub labelCP_Click(sender As Object, e As EventArgs) Handles labelCP.Click
 
     End Sub
 End Class

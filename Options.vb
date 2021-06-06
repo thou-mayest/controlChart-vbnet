@@ -1,5 +1,5 @@
 ﻿Public Class Options
-    Public Shared FilePath As String = "Classeur1.xlsx"
+    Public Shared FilePath As String = "Classeur2.xlsx"
     Public Shared SheetName As String = "Exemple2_CSV"
     Public Shared ColumnNb As Integer = 4
     Public Shared Column1 As String = "D"
@@ -8,7 +8,7 @@
     Public Shared Column4 As String = "D"
     Public Shared LinesRange As Integer = 10
     Public Shared ReadToEnd As Boolean = False
-    Public Shared interval As Integer = 5
+    Public Shared interval As Integer = 0
 
 
     Public Shared Function ColumnFromChar(column As String)
