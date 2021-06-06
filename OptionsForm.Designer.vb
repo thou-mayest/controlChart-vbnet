@@ -35,6 +35,9 @@ Partial Class OptionsForm
         Me.TextBoxCol2 = New System.Windows.Forms.TextBox()
         Me.TextBoxCol3 = New System.Windows.Forms.TextBox()
         Me.TextBoxCol4 = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBoxInterval = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label3
@@ -148,6 +151,32 @@ Partial Class OptionsForm
         Me.TextBoxCol4.TabIndex = 23
         Me.TextBoxCol4.Text = "D"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(50, 176)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(99, 13)
+        Me.Label2.TabIndex = 13
+        Me.Label2.Text = "refresh time every : "
+        '
+        'TextBoxInterval
+        '
+        Me.TextBoxInterval.Location = New System.Drawing.Point(155, 173)
+        Me.TextBoxInterval.Name = "TextBoxInterval"
+        Me.TextBoxInterval.Size = New System.Drawing.Size(31, 20)
+        Me.TextBoxInterval.TabIndex = 12
+        Me.TextBoxInterval.Text = "5"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(192, 176)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(47, 13)
+        Me.Label4.TabIndex = 13
+        Me.Label4.Text = "seconds"
+        '
         'OptionsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -162,7 +191,10 @@ Partial Class OptionsForm
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TextBoxSheetName)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.LabelColNB)
+        Me.Controls.Add(Me.TextBoxInterval)
         Me.Controls.Add(Me.TextBoxCol1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBoxFilePath)
@@ -192,4 +224,7 @@ Partial Class OptionsForm
     Friend WithEvents TextBoxCol2 As TextBox
     Friend WithEvents TextBoxCol3 As TextBox
     Friend WithEvents TextBoxCol4 As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents TextBoxInterval As TextBox
+    Friend WithEvents Label4 As Label
 End Class

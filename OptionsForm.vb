@@ -6,7 +6,7 @@
         Options.Column2 = TextBoxCol2.Text
         Options.Column3 = TextBoxCol3.Text
         Options.Column4 = TextBoxCol4.Text
-
+        Options.interval = Convert.ToInt32(TextBoxInterval.Text) * 1000
 
         Options.LinesRange = Convert.ToInt32(TextBoxRange.Text)
 
@@ -27,6 +27,8 @@
         TextBoxCol2.Text = Options.Column2
         TextBoxCol3.Text = Options.Column3
         TextBoxCol4.Text = Options.Column4
+        TextBoxInterval.Text = Options.interval / 1000
+
 
         TextBoxRange.Text = Options.LinesRange
 

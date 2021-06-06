@@ -141,7 +141,7 @@ Public Class Form1
 
         'MainStart()
 
-        Timer1.Interval = 5000
+        Timer1.Interval = Options.interval
         Timer1.Start()
 
     End Sub
@@ -220,6 +220,7 @@ Public Class Form1
 
     Private Sub ReadFromXL()
 
+        Debug.WriteLine(Timer1.Interval)
         'xlapp = New Application
 
         Console.WriteLine(WorksheetName + "   /  " + Filepath)
