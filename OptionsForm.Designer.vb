@@ -173,6 +173,7 @@ Partial Class OptionsForm
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Options"
+        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -105,7 +105,6 @@ Public Class Form1
 
     End Sub
 
-    Dim tempd As Double
     Public Sub DrawChart(chart As DataVisualization.Charting.Series, name As String, refarray As Array, ControlData As Array, ChartType As SeriesChartType, color As Color, Border As Double)
         chart.Points.Clear()
         chart.Name = name
@@ -114,10 +113,8 @@ Public Class Form1
         chart.BorderWidth = Border
 
         For index = 2 To UBound(refarray) - 1
-            If Not String.IsNullOrEmpty(refarray(index)) Then
-                chart.Points.AddXY(refarray(index), ControlData(index))
-            End If
 
+            chart.Points.AddXY(refarray(index), ControlData(index))
 
         Next
     End Sub
@@ -263,13 +260,10 @@ Public Class Form1
         Try
             For xlrow = 2 To range
                 'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
-                If String.IsNullOrEmpty(xlrange.Cells(xlrow, 1).Text) Or String.IsNullOrEmpty(xlrange.Cells(xlrow, xlColumn).Text) Or Not Double.TryParse(xlrange.Cells(xlrow, xlColumn).Text, doubleTemp) Then
-                    P1(xlrow) = "0"
-                    dataarrayRef(xlrow) = "0"
-                Else
-                    dataarrayRef(xlrow) = xlrange.Cells(xlrow, 1).Text
-                    P1(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
-                End If
+
+                dataarrayRef(xlrow) = xlrange.Cells(xlrow, 1).Text
+                P1(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
+
             Next
 
         Catch ex As Exception
@@ -283,13 +277,9 @@ Public Class Form1
 
         For xlrow = 2 To range
             'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
-            If String.IsNullOrEmpty(xlrange.Cells(xlrow, xlColumn).Text) Or Not Double.TryParse(xlrange.Cells(xlrow, xlColumn).Text, doubleTemp) Then
-                P2(xlrow) = "0"
 
-            Else
+            P2(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
 
-                P2(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
-            End If
         Next
 
         ' =====================================  POPULATE FUNCTIONS p3
@@ -298,13 +288,10 @@ Public Class Form1
 
         For xlrow = 2 To range
             'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
-            If String.IsNullOrEmpty(xlrange.Cells(xlrow, xlColumn).Text) Or Not Double.TryParse(xlrange.Cells(xlrow, xlColumn).Text, doubleTemp) Then
-                P3(xlrow) = "0"
 
-            Else
 
-                P3(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
-            End If
+            P3(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
+
         Next
 
         ' =====================================  POPULATE FUNCTIONS p4
@@ -313,19 +300,21 @@ Public Class Form1
 
         For xlrow = 2 To range
             'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
-            If String.IsNullOrEmpty(xlrange.Cells(xlrow, xlColumn).Text) Or Not Double.TryParse(xlrange.Cells(xlrow, xlColumn).Text, doubleTemp) Then
-                P4(xlrow) = "0"
 
-            Else
+            P4(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
 
-                P4(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
-            End If
         Next
-
+        Debug.WriteLine(P1.Length & " : p1" & dataarrayRef.Length & " : dataarrayref")
         ' ================================== calc and populate Moy
 
         For xlrow = 2 To range
-            arraymoy(xlrow) = Convert.ToDouble((Convert.ToDouble(P1(xlrow)) + Convert.ToDouble(P2(xlrow)) + Convert.ToDouble(P3(xlrow)) + Convert.ToDouble(P4(xlrow))) / 4) * 100
+
+            Try
+                arraymoy(xlrow) = ((Convert.ToDouble(P1(xlrow)) + Convert.ToDouble(P2(xlrow)) + Convert.ToDouble(P3(xlrow)) + Convert.ToDouble(P4(xlrow))) / 4) * 100
+            Catch ex As Exception
+                arraymoy(xlrow) = 0
+            End Try
+
             'Debug.WriteLine(Convert.ToDouble(arraymoy(xlrow)))
         Next
 
