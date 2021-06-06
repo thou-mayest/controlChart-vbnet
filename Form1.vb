@@ -19,17 +19,21 @@ Public Class Form1
     Dim cpm As Double
 
     Public main_chart_points As New DataVisualization.Charting.Series
-
     Public main_points As New DataVisualization.Charting.Series
     Public Moy_chart_points As New DataVisualization.Charting.Series
     Public UCL_chart_points As New DataVisualization.Charting.Series
     Public LCL_chart_points As New DataVisualization.Charting.Series
+    Public TI_chart_points As New DataVisualization.Charting.Series
+    Public ts_chart_points As New DataVisualization.Charting.Series
+
 
     Public main_chart_points2 As New DataVisualization.Charting.Series
     Public main_points2 As New DataVisualization.Charting.Series
     Public Moy_chart_points2 As New DataVisualization.Charting.Series
     Public UCL_chart_points2 As New DataVisualization.Charting.Series
     Public LCL_chart_points2 As New DataVisualization.Charting.Series
+    Public TI_chart_points2 As New DataVisualization.Charting.Series
+    Public ts_chart_points2 As New DataVisualization.Charting.Series
 
     Sub DrawAllCharts(arrayref As Object, arrayControl As Object, etendue As Object)
 
@@ -48,17 +52,20 @@ Public Class Form1
         ' ==================================== DRAW MOY (average)
 
         DrawHorizantalLine(Moy_chart_points, "Moy", arrayref, Moy(arrayControl), SeriesChartType.Line, Color.Blue, 1.8F)
-        Debug.WriteLine(Moy(arrayControl) & " : this is moyint")
+
 
         '===================================== DRAW LSC and LIC
         DrawHorizantalLine(UCL_chart_points, "LSC", arrayref, (Moy(arrayControl) + 3 * sigma), SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
-        DrawHorizantalLine(LCL_chart_points, "LCL", arrayref, (Moy(arrayControl) - 3 * sigma), SeriesChartType.FastLine, Color.Red, 1.5)
+        DrawHorizantalLine(LCL_chart_points, "LCL", arrayref, (Moy(arrayControl) - 3 * sigma), SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
+
+        DrawHorizantalLine(ts_chart_points, "TS", arrayref, Convert.ToDouble(TextboxTS.Text.Replace(".", ",")), SeriesChartType.FastLine, Color.Red, 1)
+        DrawHorizantalLine(TI_chart_points, "TI", arrayref, Convert.ToDouble(TextboxTI.Text.Replace(".", ",")), SeriesChartType.FastLine, Color.Red, 1)
 
 
         labelCP.Invoke(Sub()
-                           cp = (Convert.ToDouble(TextboxTS.Text) - Convert.ToDouble(TextboxTI.Text)) / 6 * sigma
-                           labelCP.Text = String.Format("{0:0.00}", cp)
-
+                           cp = (Convert.ToDouble(TextboxTS.Text.Replace(".", ",")) - Convert.ToDouble(TextboxTI.Text.Replace(".", ","))) / 6 * sigma
+                           labelCP.Text = String.Format("{0:0.000}", cp)
+                           Debug.WriteLine(cp & " cp")
                            If cp < 1.33 Then
                                labelCP.ForeColor = Color.Red
                            ElseIf cp > 1.67 Then
@@ -72,10 +79,10 @@ Public Class Form1
 
                        End Sub)
         LabelCPk.Invoke(Sub()
-                            Dim val1 = (Moy(arrayControl) - Convert.ToDouble(TextboxTI.Text)) / 3 * sigma
-                            Dim val2 = (Convert.ToDouble(TextboxTS.Text) - Moy(arrayControl)) / 3 * sigma
+                            Dim val1 = (Moy(arrayControl) - Convert.ToDouble(TextboxTI.Text.Replace(".", ","))) / 3 * sigma
+                            Dim val2 = (Convert.ToDouble(TextboxTS.Text.Replace(".", ",")) - Moy(arrayControl)) / 3 * sigma
                             cpk = Math.Min(val1, val2)
-                            LabelCPk.Text = String.Format("{0:0.00}", cpk)
+                            LabelCPk.Text = String.Format("{0:0.000}", cpk)
                             If cpk < 1.33 Then
                                 LabelCPk.ForeColor = Color.Red
                             ElseIf cp > 1.67 Then
@@ -124,12 +131,14 @@ Public Class Form1
 
         '===================================== DRAW LSC and LIC
         DrawHorizantalLine(UCL_chart_points2, "LSC", arrayref, d4 * Moy(etendue), SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
-        DrawHorizantalLine(LCL_chart_points2, "LCL", arrayref, D3 * Moy(etendue), SeriesChartType.FastLine, Color.Red, 1.5)
-        Debug.WriteLine(d4 * Moy(etendue) & " : LSC")
+        DrawHorizantalLine(LCL_chart_points2, "LCL", arrayref, D3 * Moy(etendue), SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
+
+        DrawHorizantalLine(ts_chart_points2, "TS", arrayref, Convert.ToDouble(TextboxTS2.Text.Replace(".", ",")), SeriesChartType.FastLine, Color.Red, 1)
+        DrawHorizantalLine(TI_chart_points2, "TI", arrayref, Convert.ToDouble(TextboxTI2.Text.Replace(".", ",")), SeriesChartType.FastLine, Color.Red, 1)
 
         ' ==============://///////////// CHANGE LABEL NAME AND CALC CPK  &&..
         LabelCP2.Invoke(Sub()
-                            cp = (Convert.ToDouble(TextboxTS2.Text) - Convert.ToDouble(TextboxTI2.Text)) / 6 * sigma
+                            cp = (Convert.ToDouble(TextboxTS2.Text.Replace(".", ",")) - Convert.ToDouble(TextboxTI2.Text.Replace(".", ","))) / 6 * sigma
                             LabelCP2.Text = String.Format("{0:0.00}", cp)
                             If cp < 1.33 Then
                                 LabelCP2.ForeColor = Color.Red
@@ -141,8 +150,8 @@ Public Class Form1
                             End If
                         End Sub)
         LabelCPK2.Invoke(Sub()
-                             Dim val1 = (Moy(arrayControl) - Convert.ToDouble(TextboxTI2.Text)) / 3 * sigma
-                             Dim val2 = (Convert.ToDouble(TextboxTS2.Text) - Moy(arrayControl)) / 3 * sigma
+                             Dim val1 = (Moy(arrayControl) - Convert.ToDouble(TextboxTI2.Text.Replace(".", ","))) / 3 * sigma
+                             Dim val2 = (Convert.ToDouble(TextboxTS2.Text.Replace(".", ",")) - Moy(arrayControl)) / 3 * sigma
                              cpk = Math.Min(val1, val2)
                              LabelCPK2.Text = String.Format("{0:0.00}", cpk)
                              If cpk < 1.33 Then
@@ -212,8 +221,13 @@ Public Class Form1
 
         'MainStart()
 
-        Timer1.Interval = Options.interval
-        Timer1.Start()
+
+        If Options.interval <> 0 Then
+            Timer1.Interval = Options.interval
+            Timer1.Start()
+        Else
+            MsgBox(" intervalle ne peut pas etre nulle ")
+        End If
 
     End Sub
 
@@ -233,6 +247,10 @@ Public Class Form1
             UCL_chart_points.Name = "UCL CHART"
             Chart1.Series.Add(LCL_chart_points)
             LCL_chart_points.Name = "LCL CHART"
+            Chart1.Series.Add(TI_chart_points)
+            TI_chart_points.Name = "TI "
+            Chart1.Series.Add(ts_chart_points)
+            ts_chart_points.Name = "TS"
             ' =============== init chart2
             Chart2.Series.Add(main_chart_points2)
             main_chart_points2.Name = "MAIN CHART"
@@ -244,6 +262,10 @@ Public Class Form1
             UCL_chart_points2.Name = "UCL CHART"
             Chart2.Series.Add(LCL_chart_points2)
             LCL_chart_points2.Name = "LCL CHART"
+            Chart2.Series.Add(TI_chart_points2)
+            TI_chart_points2.Name = "TI "
+            Chart2.Series.Add(ts_chart_points2)
+            ts_chart_points2.Name = "TS"
         Catch ex As Exception
             'MsgBox(ex.Message)
         End Try
@@ -277,14 +299,12 @@ Public Class Form1
         Try
 
             WorksheetName = Options.SheetName
-            Filepath = My.Application.Info.DirectoryPath + "\" + Options.FilePath
+            Filepath = Options.FilePath
 
             ReadFromXL()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
-
 
 
     End Sub
@@ -326,7 +346,7 @@ Public Class Form1
         Debug.WriteLine(range & " : range")
         ' =====================================  POPULATE FUNCTIONS p1 and ref
 
-        Dim doubleTemp As Double
+
         xlColumn = Options.ColumnFromChar(Options.Column1)
         'Debug.WriteLine(xlColumn & ": xlcolumn")
         Try
@@ -381,13 +401,12 @@ Public Class Form1
         Next
 
 
-        Debug.WriteLine(P1.Length & " : p1" & dataarrayRef.Length & " : dataarrayref")
         ' ================================== calc and populate Moy
 
         For xlrow = 2 To range
 
             Try
-                arraymoy(xlrow) = ((Convert.ToDouble(P1(xlrow)) + Convert.ToDouble(P2(xlrow)) + Convert.ToDouble(P3(xlrow)) + Convert.ToDouble(P4(xlrow))) / 4) * 100
+                arraymoy(xlrow) = ((Convert.ToDouble(P1(xlrow).Replace(".", ",")) + Convert.ToDouble(P2(xlrow).Replace(".", ",")) + Convert.ToDouble(P3(xlrow).Replace(".", ",")) + Convert.ToDouble(P4(xlrow).Replace(".", ","))) / 4)
             Catch ex As Exception
                 arraymoy(xlrow) = 0
             End Try
@@ -401,15 +420,15 @@ Public Class Form1
             etendue(xlrow) = Math.Abs(arraymoy(xlrow) - arraymoy(xlrow - 1))
         Next
 
-        Try
-            Chart1.Invoke(Sub()
+        'Try
+        Chart1.Invoke(Sub()
                               DrawAllCharts(dataarrayRef, arraymoy, etendue)
                           End Sub)
 
-        Catch ex As Exception
-            MsgBox(ex.Message & "  : 1 ")
-            Timer1.Stop()
-        End Try
+        'Catch ex As Exception
+        '    MsgBox(ex.Message & "  : 1 ")
+        '    Timer1.Stop()
+        'End Try
 
     End Sub
 
@@ -485,20 +504,24 @@ Public Class Form1
 
     Private Sub TextboxUSL_Leave(sender As Object, e As EventArgs) Handles TextboxTS.Leave
         Try
-            Convert.ToInt32(TextboxTS.Text)
+
+            Convert.ToDouble(TextboxTS.Text.Replace(".", ","))
         Catch ex As Exception
-            MsgBox("USL field should be an int")
+            MsgBox("TS doit etre reelle")
             TextboxTS.Select()
         End Try
     End Sub
 
     Private Sub TextboxLSL_Leave(sender As Object, e As EventArgs) Handles TextboxTI.Leave
+
         Try
-            Convert.ToInt32(TextboxTI.Text)
+
+            Convert.ToDouble(TextboxTI.Text.Replace(".", ","))
         Catch ex As Exception
-            MsgBox("LSL field should be an int")
+            MsgBox("TI doit etre reelle")
             TextboxTI.Select()
         End Try
+
     End Sub
 
     Private Sub OptionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OptionsToolStripMenuItem.Click
@@ -518,6 +541,14 @@ Public Class Form1
     End Sub
 
     Private Sub labelCP_Click(sender As Object, e As EventArgs) Handles labelCP.Click, LabelCpm.Click
+
+    End Sub
+
+    Private Sub TextboxTS2_Leave(sender As Object, e As EventArgs) Handles TextboxTS2.Leave
+
+    End Sub
+
+    Private Sub TextboxTI2_Leave(sender As Object, e As EventArgs) Handles TextboxTI2.Leave
 
     End Sub
 End Class

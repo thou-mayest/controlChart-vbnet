@@ -38,6 +38,7 @@ Partial Class OptionsForm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBoxInterval = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label3
@@ -51,7 +52,7 @@ Partial Class OptionsForm
         '
         'TextBoxSheetName
         '
-        Me.TextBoxSheetName.Location = New System.Drawing.Point(158, 68)
+        Me.TextBoxSheetName.Location = New System.Drawing.Point(137, 68)
         Me.TextBoxSheetName.Name = "TextBoxSheetName"
         Me.TextBoxSheetName.Size = New System.Drawing.Size(125, 20)
         Me.TextBoxSheetName.TabIndex = 14
@@ -79,13 +80,13 @@ Partial Class OptionsForm
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(50, 34)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(102, 13)
+        Me.Label1.Size = New System.Drawing.Size(53, 13)
         Me.Label1.TabIndex = 11
-        Me.Label1.Text = "File name(later path)"
+        Me.Label1.Text = "File path: "
         '
         'TextBoxFilePath
         '
-        Me.TextBoxFilePath.Location = New System.Drawing.Point(158, 31)
+        Me.TextBoxFilePath.Location = New System.Drawing.Point(137, 31)
         Me.TextBoxFilePath.Name = "TextBoxFilePath"
         Me.TextBoxFilePath.Size = New System.Drawing.Size(125, 20)
         Me.TextBoxFilePath.TabIndex = 10
@@ -93,11 +94,11 @@ Partial Class OptionsForm
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(301, 200)
+        Me.Button1.Location = New System.Drawing.Point(268, 201)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 16
-        Me.Button1.Text = "Save"
+        Me.Button1.Text = "sauvegarder"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'CheckBoxReadTE
@@ -177,11 +178,21 @@ Partial Class OptionsForm
         Me.Label4.TabIndex = 13
         Me.Label4.Text = "seconds"
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(268, 29)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 24
+        Me.Button2.Text = "Parcourir"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'OptionsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(388, 236)
+        Me.ClientSize = New System.Drawing.Size(363, 236)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.TextBoxCol4)
         Me.Controls.Add(Me.TextBoxCol3)
         Me.Controls.Add(Me.TextBoxCol2)
@@ -228,4 +239,5 @@ Partial Class OptionsForm
     Friend WithEvents Label2 As Label
     Friend WithEvents TextBoxInterval As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Button2 As Button
 End Class

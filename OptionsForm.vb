@@ -67,4 +67,16 @@
 
         MsgBox(Options.ColumnFromChar(TextBoxCol1.Text))
     End Sub
+
+    Dim fbrowser As New OpenFileDialog
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+
+        fbrowser.Title = "Fichier a ouvrir"
+
+        fbrowser.InitialDirectory = My.Application.Info.DirectoryPath
+        If fbrowser.ShowDialog() = DialogResult.OK Then
+            TextBoxFilePath.Text = fbrowser.FileName
+        End If
+    End Sub
 End Class
