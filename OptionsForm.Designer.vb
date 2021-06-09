@@ -40,6 +40,8 @@ Partial Class OptionsForm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.ComboBoxLang = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label3
@@ -97,7 +99,7 @@ Partial Class OptionsForm
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(268, 218)
+        Me.Button1.Location = New System.Drawing.Point(268, 257)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 11
@@ -195,16 +197,36 @@ Partial Class OptionsForm
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Location = New System.Drawing.Point(158, 132)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(114, 17)
+        Me.CheckBox1.Size = New System.Drawing.Size(123, 17)
         Me.CheckBox1.TabIndex = 5
-        Me.CheckBox1.Text = "CHECK ""DERIV""?"
+        Me.CheckBox1.Text = "CHECK DEVIATION"
         Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'ComboBoxLang
+        '
+        Me.ComboBoxLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxLang.FormattingEnabled = True
+        Me.ComboBoxLang.Items.AddRange(New Object() {"Fr", "En"})
+        Me.ComboBoxLang.Location = New System.Drawing.Point(158, 216)
+        Me.ComboBoxLang.Name = "ComboBoxLang"
+        Me.ComboBoxLang.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBoxLang.TabIndex = 21
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(50, 219)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(66, 13)
+        Me.Label5.TabIndex = 13
+        Me.Label5.Text = "LANGUAGE"
         '
         'OptionsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(363, 255)
+        Me.ClientSize = New System.Drawing.Size(363, 292)
+        Me.Controls.Add(Me.ComboBoxLang)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.TextBoxCol4)
         Me.Controls.Add(Me.TextBoxCol3)
@@ -217,6 +239,7 @@ Partial Class OptionsForm
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TextBoxSheetName)
         Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.LabelColNB)
         Me.Controls.Add(Me.TextBoxInterval)
@@ -255,4 +278,6 @@ Partial Class OptionsForm
     Friend WithEvents Label4 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents ComboBoxLang As ComboBox
+    Friend WithEvents Label5 As Label
 End Class

@@ -69,12 +69,12 @@ Public Class Form1
                             LabelLCL.Text = String.Format("{0:0.00}", (Moy(arrayControl) - 3 * sigma))
                         End Sub)
 
-        DrawHorizantalLine(ts_chart_points, "TS", arrayref, Convert.ToDouble(TextboxTS.Text.Replace(".", ",")), SeriesChartType.FastLine, Color.Red, 1)
-        DrawHorizantalLine(TI_chart_points, "TI", arrayref, Convert.ToDouble(TextboxTI.Text.Replace(".", ",")), SeriesChartType.FastLine, Color.Red, 1)
+        DrawHorizantalLine(ts_chart_points, "TS", arrayref, Convert.ToDouble(Options.replace(TextboxTS.Text)), SeriesChartType.FastLine, Color.Red, 1)
+        DrawHorizantalLine(TI_chart_points, "TI", arrayref, Convert.ToDouble(Options.replace(TextboxTI.Text)), SeriesChartType.FastLine, Color.Red, 1)
 
 
         labelCP.Invoke(Sub()
-                           cp = (Convert.ToDouble(TextboxTS.Text.Replace(".", ",")) - Convert.ToDouble(TextboxTI.Text.Replace(".", ","))) / (6 * sigma)
+                           cp = (Convert.ToDouble(Options.replace(TextboxTS.Text)) - Convert.ToDouble(Options.replace(TextboxTI.Text))) / (6 * sigma)
                            labelCP.Text = String.Format("{0:0.000}", cp)
                            Debug.WriteLine(cp & " cp")
                            If cp < 1.33 Then
@@ -92,8 +92,8 @@ Public Class Form1
 
 
         LabelCPk.Invoke(Sub()
-                            Dim val1 = (Moy(arrayControl) - Convert.ToDouble(TextboxTI.Text.Replace(".", ","))) / (3 * sigma)
-                            Dim val2 = (Convert.ToDouble(TextboxTS.Text.Replace(".", ",")) - Moy(arrayControl)) / (3 * sigma)
+                            Dim val1 = (Moy(arrayControl) - Convert.ToDouble(Options.replace(TextboxTI.Text))) / (3 * sigma)
+                            Dim val2 = (Convert.ToDouble(Options.replace(TextboxTS.Text)) - Moy(arrayControl)) / (3 * sigma)
                             cpk = Math.Min(val1, val2)
                             LabelCPk.Text = String.Format("{0:0.000}", cpk)
                             If cpk < 1.33 Then
@@ -157,12 +157,12 @@ Public Class Form1
                              LabelLCL2.Text = String.Format("{0:0.00}", (Moy(arrayControl) - 3 * sigma))
                          End Sub)
 
-        DrawHorizantalLine(ts_chart_points2, "TS", arrayref, Convert.ToDouble(TextboxTS2.Text.Replace(".", ",")), SeriesChartType.FastLine, Color.Red, 1)
-        DrawHorizantalLine(TI_chart_points2, "TI", arrayref, Convert.ToDouble(TextboxTI2.Text.Replace(".", ",")), SeriesChartType.FastLine, Color.Red, 1)
+        DrawHorizantalLine(ts_chart_points2, "TS", arrayref, Convert.ToDouble(Options.replace(TextboxTS2.Text)), SeriesChartType.FastLine, Color.Red, 1)
+        DrawHorizantalLine(TI_chart_points2, "TI", arrayref, Convert.ToDouble(Options.replace(TextboxTI2.Text)), SeriesChartType.FastLine, Color.Red, 1)
 
         ' ==============://///////////// CHANGE LABEL NAME AND CALC CPK  &&..
         LabelCP2.Invoke(Sub()
-                            cp = (Convert.ToDouble(TextboxTS2.Text.Replace(".", ",")) - Convert.ToDouble(TextboxTI2.Text.Replace(".", ","))) / (6 * sigma)
+                            cp = (Convert.ToDouble(Options.replace(TextboxTS2.Text)) - Convert.ToDouble(Options.replace(TextboxTI2.Text))) / (6 * sigma)
                             LabelCP2.Text = String.Format("{0:0.00}", cp)
                             If cp < 1.33 Then
                                 LabelCP2.ForeColor = Color.Red
@@ -174,8 +174,8 @@ Public Class Form1
                             End If
                         End Sub)
         LabelCPK2.Invoke(Sub()
-                             Dim val1 = (Moy(arrayControl) - Convert.ToDouble(TextboxTI2.Text.Replace(".", ","))) / (3 * sigma)
-                             Dim val2 = (Convert.ToDouble(TextboxTS2.Text.Replace(".", ",")) - Moy(arrayControl)) / (3 * sigma)
+                             Dim val1 = (Moy(arrayControl) - Convert.ToDouble(Options.replace(TextboxTI2.Text))) / (3 * sigma)
+                             Dim val2 = (Convert.ToDouble(Options.replace(TextboxTS2.Text)) - Moy(arrayControl)) / (3 * sigma)
                              cpk = Math.Min(val1, val2)
                              LabelCPK2.Text = String.Format("{0:0.00}", cpk)
                              If cpk < 1.33 Then
@@ -501,7 +501,7 @@ Public Class Form1
         For xlrow = 2 To range
 
             Try
-                arraymoy(xlrow) = ((Convert.ToDouble(P1(xlrow).Replace(".", ",")) + Convert.ToDouble(P2(xlrow).Replace(".", ",")) + Convert.ToDouble(P3(xlrow).Replace(".", ",")) + Convert.ToDouble(P4(xlrow).Replace(".", ","))) / 4) 'change if p4 null
+                arraymoy(xlrow) = ((Convert.ToDouble(Options.replace(P1(xlrow))) + Convert.ToDouble(Options.replace(P2(xlrow))) + Convert.ToDouble(Options.replace(P3(xlrow))) + Convert.ToDouble(Options.replace(P4(xlrow)))) / 4) 'change if p4 null
                 Debug.WriteLine(P3(xlrow) & " : moy p1")
                 Debug.WriteLine(P4(xlrow) & " : moy p4")
             Catch ex As Exception
@@ -517,24 +517,26 @@ Public Class Form1
             etendue(xlrow) = Math.Abs(arraymoy(xlrow) - arraymoy(xlrow - 1))
         Next
 
-        'Try
-        Chart1.Invoke(Sub()
+        Try
+            Chart1.Invoke(Sub()
                               DrawAllCharts(dataarrayRef, arraymoy, etendue)
                           End Sub)
 
 
 
-        'xlapp.Visible = True
+            'xlapp.Visible = True
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            'Timer1.Stop()
+        End Try
+
         xlapp.UserControl = True
 
         workbook = Nothing
         worksheets = Nothing
         xlworksheet = Nothing
         xlrange = Nothing
-        'Catch ex As Exception
-        '    MsgBox(ex.Message & "  : 1 ")
-        '    Timer1.Stop()
-        'End Try
 
     End Sub
 
@@ -611,7 +613,7 @@ Public Class Form1
     Private Sub TextboxUSL_Leave(sender As Object, e As EventArgs) Handles TextboxTS.Leave
         Try
 
-            Convert.ToDouble(TextboxTS.Text.Replace(".", ","))
+            Convert.ToDouble(Options.replace(TextboxTS.Text))
         Catch ex As Exception
             MsgBox("TS doit etre reelle")
             TextboxTS.Select()
@@ -622,7 +624,7 @@ Public Class Form1
 
         Try
 
-            Convert.ToDouble(TextboxTI.Text.Replace(".", ","))
+            Convert.ToDouble(Options.replace(TextboxTI.Text))
         Catch ex As Exception
             MsgBox("TI doit etre reelle")
             TextboxTI.Select()

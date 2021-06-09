@@ -10,6 +10,7 @@
     Public Shared LinesRange As Integer = 10
     Public Shared ReadToEnd As Boolean = False
     Public Shared interval As Integer = 0
+    Public Shared Lang As String = ""
 
 
     Public Shared Function ColumnFromChar(column As String)
@@ -35,5 +36,14 @@
     Public Shared Function CharFromInt(index As Integer)
         Dim alphabet As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         Return alphabet(index)
+    End Function
+
+    Public Shared Function replace(str As String)
+
+        If Options.Lang = "Fr" Then
+            Return str.Replace(".", ",")
+        Else
+            Return str.Replace(",", ".")
+        End If
     End Function
 End Class

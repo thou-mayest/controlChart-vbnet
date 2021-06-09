@@ -18,6 +18,9 @@
 
         End If
 
+        Options.Lang = ComboBoxLang.SelectedItem
+
+
 
 
         Options.LinesRange = Convert.ToInt32(TextBoxRange.Text)
@@ -41,6 +44,20 @@
         TextBoxCol3.Text = Options.Column3
         TextBoxCol4.Text = Options.Column4
         TextBoxInterval.Text = Options.interval / 1000
+
+        If Options.Lang = "Fr" Then
+            ComboBoxLang.SelectedItem = ComboBoxLang.Items(0)
+        ElseIf Options.Lang = "" Then
+            If System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToUpper.Contains("FR") Then
+                ComboBoxLang.SelectedItem = ComboBoxLang.Items(0)
+            Else
+                ComboBoxLang.SelectedItem = ComboBoxLang.Items(1)
+            End If
+        Else
+                ComboBoxLang.SelectedItem = ComboBoxLang.Items(1)
+        End If
+
+
 
 
         TextBoxRange.Text = Options.LinesRange
