@@ -45,6 +45,7 @@ Partial Class OptionsForm
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Enabled = False
         Me.Label3.Location = New System.Drawing.Point(50, 71)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(83, 13)
@@ -53,11 +54,12 @@ Partial Class OptionsForm
         '
         'TextBoxSheetName
         '
+        Me.TextBoxSheetName.Enabled = False
         Me.TextBoxSheetName.Location = New System.Drawing.Point(137, 68)
         Me.TextBoxSheetName.Name = "TextBoxSheetName"
         Me.TextBoxSheetName.Size = New System.Drawing.Size(125, 20)
         Me.TextBoxSheetName.TabIndex = 14
-        Me.TextBoxSheetName.Text = "Exemple2_CSV"
+        Me.TextBoxSheetName.Text = "selected automatically"
         '
         'LabelColNB
         '
@@ -73,7 +75,7 @@ Partial Class OptionsForm
         Me.TextBoxCol1.Location = New System.Drawing.Point(137, 155)
         Me.TextBoxCol1.Name = "TextBoxCol1"
         Me.TextBoxCol1.Size = New System.Drawing.Size(31, 20)
-        Me.TextBoxCol1.TabIndex = 12
+        Me.TextBoxCol1.TabIndex = 6
         Me.TextBoxCol1.Text = "D"
         '
         'Label1
@@ -90,7 +92,7 @@ Partial Class OptionsForm
         Me.TextBoxFilePath.Location = New System.Drawing.Point(137, 31)
         Me.TextBoxFilePath.Name = "TextBoxFilePath"
         Me.TextBoxFilePath.Size = New System.Drawing.Size(125, 20)
-        Me.TextBoxFilePath.TabIndex = 10
+        Me.TextBoxFilePath.TabIndex = 1
         Me.TextBoxFilePath.Text = "Classeur2.xlsx"
         '
         'Button1
@@ -98,7 +100,7 @@ Partial Class OptionsForm
         Me.Button1.Location = New System.Drawing.Point(268, 218)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 16
+        Me.Button1.TabIndex = 11
         Me.Button1.Text = "SAVE"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -108,7 +110,7 @@ Partial Class OptionsForm
         Me.CheckBoxReadTE.Location = New System.Drawing.Point(158, 109)
         Me.CheckBoxReadTE.Name = "CheckBoxReadTE"
         Me.CheckBoxReadTE.Size = New System.Drawing.Size(103, 17)
-        Me.CheckBoxReadTE.TabIndex = 18
+        Me.CheckBoxReadTE.TabIndex = 4
         Me.CheckBoxReadTE.Text = "READ ALL FILE"
         Me.CheckBoxReadTE.UseVisualStyleBackColor = True
         '
@@ -126,7 +128,7 @@ Partial Class OptionsForm
         Me.TextBoxRange.Location = New System.Drawing.Point(105, 107)
         Me.TextBoxRange.Name = "TextBoxRange"
         Me.TextBoxRange.Size = New System.Drawing.Size(31, 20)
-        Me.TextBoxRange.TabIndex = 19
+        Me.TextBoxRange.TabIndex = 3
         Me.TextBoxRange.Text = "10"
         '
         'TextBoxCol2
@@ -134,7 +136,7 @@ Partial Class OptionsForm
         Me.TextBoxCol2.Location = New System.Drawing.Point(174, 155)
         Me.TextBoxCol2.Name = "TextBoxCol2"
         Me.TextBoxCol2.Size = New System.Drawing.Size(31, 20)
-        Me.TextBoxCol2.TabIndex = 21
+        Me.TextBoxCol2.TabIndex = 7
         Me.TextBoxCol2.Text = "D"
         '
         'TextBoxCol3
@@ -142,7 +144,7 @@ Partial Class OptionsForm
         Me.TextBoxCol3.Location = New System.Drawing.Point(211, 155)
         Me.TextBoxCol3.Name = "TextBoxCol3"
         Me.TextBoxCol3.Size = New System.Drawing.Size(31, 20)
-        Me.TextBoxCol3.TabIndex = 22
+        Me.TextBoxCol3.TabIndex = 8
         Me.TextBoxCol3.Text = "D"
         '
         'TextBoxCol4
@@ -150,7 +152,7 @@ Partial Class OptionsForm
         Me.TextBoxCol4.Location = New System.Drawing.Point(248, 155)
         Me.TextBoxCol4.Name = "TextBoxCol4"
         Me.TextBoxCol4.Size = New System.Drawing.Size(31, 20)
-        Me.TextBoxCol4.TabIndex = 23
+        Me.TextBoxCol4.TabIndex = 9
         Me.TextBoxCol4.Text = "D"
         '
         'Label2
@@ -167,7 +169,7 @@ Partial Class OptionsForm
         Me.TextBoxInterval.Location = New System.Drawing.Point(195, 190)
         Me.TextBoxInterval.Name = "TextBoxInterval"
         Me.TextBoxInterval.Size = New System.Drawing.Size(31, 20)
-        Me.TextBoxInterval.TabIndex = 12
+        Me.TextBoxInterval.TabIndex = 10
         Me.TextBoxInterval.Text = "5"
         '
         'Label4
@@ -184,7 +186,7 @@ Partial Class OptionsForm
         Me.Button2.Location = New System.Drawing.Point(268, 29)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 24
+        Me.Button2.TabIndex = 2
         Me.Button2.Text = "BROWSE"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -194,7 +196,7 @@ Partial Class OptionsForm
         Me.CheckBox1.Location = New System.Drawing.Point(158, 132)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(114, 17)
-        Me.CheckBox1.TabIndex = 18
+        Me.CheckBox1.TabIndex = 5
         Me.CheckBox1.Text = "CHECK ""DERIV""?"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '

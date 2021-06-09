@@ -1,5 +1,6 @@
 ﻿Imports System.Windows.Forms.DataVisualization.Charting
 Imports Microsoft.Office.Interop.Excel
+Imports Microsoft.Office.Interop
 Imports System.Threading
 
 Public Class Form1
@@ -209,7 +210,7 @@ Public Class Form1
                 tempSomme = 0
                 For index = i To i - 6 Step -1
                     tempSomme += (chart.Points(index).YValues(0) - moy) / Math.Abs((chart.Points(index).YValues(0) - moy))
-                    Debug.WriteLine(tempSomme & " // " & "i: " & i.ToString())
+                    ' Debug.WriteLine(tempSomme & " // " & "i: " & i.ToString())
                 Next
                 If tempSomme = 7 Then
                     For j = i To (i - 6) Step -1
@@ -339,7 +340,8 @@ Public Class Form1
     Dim xlapp As New Microsoft.Office.Interop.Excel.Application
 
     Dim workbook As Microsoft.Office.Interop.Excel.Workbook
-    Dim xlworksheet As Microsoft.Office.Interop.Excel.Worksheet
+    Dim worksheets As Excel.Sheets
+    Dim xlworksheet As Microsoft.Office.Interop.Excel._Worksheet
     Dim xlrange As Microsoft.Office.Interop.Excel.Range
     Dim xlrow As Integer
 
@@ -350,7 +352,8 @@ Public Class Form1
 
         Try
 
-            WorksheetName = Options.SheetName
+            'WorksheetName = Options.SheetName
+
             Filepath = Options.FilePath
 
             ReadFromXL()
@@ -363,21 +366,29 @@ Public Class Form1
 
     Private Sub ReadFromXL()
 
-        Debug.WriteLine(Timer1.Interval)
-        'xlapp = New Application
 
-        Console.WriteLine(WorksheetName + "   /  " + Filepath)
+
+
 
 
         workbook = xlapp.Workbooks.Open(Filepath)
 
-        xlworksheet = workbook.Worksheets(WorksheetName)
+        'new here 
+        worksheets = workbook.Worksheets()
+        Try
+            xlworksheet = worksheets(0)
+        Catch ex As Exception
+            xlworksheet = worksheets(1)
+        End Try
+
+
+        'xlworksheet = workbook.Worksheets(Options.SheetName)
 
         xlrange = xlworksheet.UsedRange
 
 
         If Options.ReadToEnd Then
-            range = xlrange.Rows.Count + 1
+            range = xlrange.Rows.Count
         Else
             range = Options.LinesRange + 1
         End If
@@ -444,7 +455,7 @@ Public Class Form1
 
         For xlrow = 2 To range
             'Debug.WriteLine(xlrow.ToString + " // " + xlrange.Cells(xlrow, 1).Text)
-            If xlColumn < 0 Then
+            If xlColumn > 0 Then
                 P4(xlrow) = xlrange.Cells(xlrow, xlColumn).Text
             Else
 
@@ -458,7 +469,9 @@ Public Class Form1
         For xlrow = 2 To range
 
             Try
-                arraymoy(xlrow) = ((Convert.ToDouble(P1(xlrow).Replace(".", ",")) + Convert.ToDouble(P2(xlrow).Replace(".", ",")) + Convert.ToDouble(P3(xlrow).Replace(".", ",")) + Convert.ToDouble(P4(xlrow).Replace(".", ","))) / 4)
+                arraymoy(xlrow) = ((Convert.ToDouble(P1(xlrow).Replace(".", ",")) + Convert.ToDouble(P2(xlrow).Replace(".", ",")) + Convert.ToDouble(P3(xlrow).Replace(".", ",")) + Convert.ToDouble(P4(xlrow).Replace(".", ","))) / 4) 'change if p4 null
+                Debug.WriteLine(P3(xlrow) & " : moy p1")
+                Debug.WriteLine(P4(xlrow) & " : moy p4")
             Catch ex As Exception
                 arraymoy(xlrow) = 0
             End Try
@@ -477,6 +490,15 @@ Public Class Form1
                               DrawAllCharts(dataarrayRef, arraymoy, etendue)
                           End Sub)
 
+
+
+        'xlapp.Visible = True
+        xlapp.UserControl = True
+
+        workbook = Nothing
+        worksheets = Nothing
+        xlworksheet = Nothing
+        xlrange = Nothing
         'Catch ex As Exception
         '    MsgBox(ex.Message & "  : 1 ")
         '    Timer1.Stop()
