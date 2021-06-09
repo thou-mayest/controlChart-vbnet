@@ -193,17 +193,44 @@ Public Class Form1
     End Sub
 
     Dim pointY As Double
+    Dim inarow(7) As Double
+    Dim tempSomme As Double
     Private Sub CheckPoints(chart As DataVisualization.Charting.Series, ucl As Double, lcl As Double, moy As Double)
 
         For i = 1 To chart.Points().Count - 1
             pointY = chart.Points(i).YValues(0)
-            Debug.WriteLine(pointY)
+
 
             If pointY < lcl Or pointY > ucl Then
                 chart.Points(i).Color = Color.Red
             End If
 
+            Try
+                tempSomme = 0
+                For index = i To i - 6 Step -1
+                    tempSomme += (chart.Points(index).YValues(0) - moy) / Math.Abs((chart.Points(index).YValues(0) - moy))
+                    Debug.WriteLine(tempSomme & " // " & "i: " & i.ToString())
+                Next
+                If tempSomme = 7 Then
+                    For j = i To (i - 6) Step -1
+                        chart.Points(j).Color = Color.Orange
+                    Next
+                End If
+                If tempSomme = -7 Then
+                    For k = i To i - 6 Step -1
+                        chart.Points(k).Color = Color.Orange
+                    Next
+                End If
+            Catch ex As Exception
+
+            End Try
+
+
+
+
         Next
+
+
 
     End Sub
     Public Sub DrawChart(chart As DataVisualization.Charting.Series, name As String, refarray As Array, ControlData As Array, ChartType As SeriesChartType, color As Color, Border As Double)
