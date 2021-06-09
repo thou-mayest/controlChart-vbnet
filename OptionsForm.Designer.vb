@@ -39,6 +39,7 @@ Partial Class OptionsForm
         Me.TextBoxInterval = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'Label3
@@ -46,9 +47,9 @@ Partial Class OptionsForm
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(50, 71)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(62, 13)
+        Me.Label3.Size = New System.Drawing.Size(83, 13)
         Me.Label3.TabIndex = 15
-        Me.Label3.Text = "sheet name"
+        Me.Label3.Text = "SHEET NAME: "
         '
         'TextBoxSheetName
         '
@@ -61,15 +62,15 @@ Partial Class OptionsForm
         'LabelColNB
         '
         Me.LabelColNB.AutoSize = True
-        Me.LabelColNB.Location = New System.Drawing.Point(50, 145)
+        Me.LabelColNB.Location = New System.Drawing.Point(50, 162)
         Me.LabelColNB.Name = "LabelColNB"
-        Me.LabelColNB.Size = New System.Drawing.Size(52, 13)
+        Me.LabelColNB.Size = New System.Drawing.Size(66, 13)
         Me.LabelColNB.TabIndex = 13
-        Me.LabelColNB.Text = "columns: "
+        Me.LabelColNB.Text = "COLUMNS: "
         '
         'TextBoxCol1
         '
-        Me.TextBoxCol1.Location = New System.Drawing.Point(137, 138)
+        Me.TextBoxCol1.Location = New System.Drawing.Point(137, 155)
         Me.TextBoxCol1.Name = "TextBoxCol1"
         Me.TextBoxCol1.Size = New System.Drawing.Size(31, 20)
         Me.TextBoxCol1.TabIndex = 12
@@ -80,9 +81,9 @@ Partial Class OptionsForm
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(50, 34)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(53, 13)
+        Me.Label1.Size = New System.Drawing.Size(67, 13)
         Me.Label1.TabIndex = 11
-        Me.Label1.Text = "File path: "
+        Me.Label1.Text = "FILE PATH: "
         '
         'TextBoxFilePath
         '
@@ -94,11 +95,11 @@ Partial Class OptionsForm
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(268, 201)
+        Me.Button1.Location = New System.Drawing.Point(268, 218)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 16
-        Me.Button1.Text = "sauvegarder"
+        Me.Button1.Text = "SAVE"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'CheckBoxReadTE
@@ -106,9 +107,9 @@ Partial Class OptionsForm
         Me.CheckBoxReadTE.AutoSize = True
         Me.CheckBoxReadTE.Location = New System.Drawing.Point(158, 109)
         Me.CheckBoxReadTE.Name = "CheckBoxReadTE"
-        Me.CheckBoxReadTE.Size = New System.Drawing.Size(81, 17)
+        Me.CheckBoxReadTE.Size = New System.Drawing.Size(103, 17)
         Me.CheckBoxReadTE.TabIndex = 18
-        Me.CheckBoxReadTE.Text = "Read all file"
+        Me.CheckBoxReadTE.Text = "READ ALL FILE"
         Me.CheckBoxReadTE.UseVisualStyleBackColor = True
         '
         'LabelRange
@@ -116,9 +117,9 @@ Partial Class OptionsForm
         Me.LabelRange.AutoSize = True
         Me.LabelRange.Location = New System.Drawing.Point(50, 110)
         Me.LabelRange.Name = "LabelRange"
-        Me.LabelRange.Size = New System.Drawing.Size(39, 13)
+        Me.LabelRange.Size = New System.Drawing.Size(51, 13)
         Me.LabelRange.TabIndex = 20
-        Me.LabelRange.Text = "Range"
+        Me.LabelRange.Text = "RANGE: "
         '
         'TextBoxRange
         '
@@ -130,7 +131,7 @@ Partial Class OptionsForm
         '
         'TextBoxCol2
         '
-        Me.TextBoxCol2.Location = New System.Drawing.Point(174, 138)
+        Me.TextBoxCol2.Location = New System.Drawing.Point(174, 155)
         Me.TextBoxCol2.Name = "TextBoxCol2"
         Me.TextBoxCol2.Size = New System.Drawing.Size(31, 20)
         Me.TextBoxCol2.TabIndex = 21
@@ -138,7 +139,7 @@ Partial Class OptionsForm
         '
         'TextBoxCol3
         '
-        Me.TextBoxCol3.Location = New System.Drawing.Point(211, 138)
+        Me.TextBoxCol3.Location = New System.Drawing.Point(211, 155)
         Me.TextBoxCol3.Name = "TextBoxCol3"
         Me.TextBoxCol3.Size = New System.Drawing.Size(31, 20)
         Me.TextBoxCol3.TabIndex = 22
@@ -146,7 +147,7 @@ Partial Class OptionsForm
         '
         'TextBoxCol4
         '
-        Me.TextBoxCol4.Location = New System.Drawing.Point(248, 138)
+        Me.TextBoxCol4.Location = New System.Drawing.Point(248, 155)
         Me.TextBoxCol4.Name = "TextBoxCol4"
         Me.TextBoxCol4.Size = New System.Drawing.Size(31, 20)
         Me.TextBoxCol4.TabIndex = 23
@@ -155,15 +156,15 @@ Partial Class OptionsForm
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(50, 176)
+        Me.Label2.Location = New System.Drawing.Point(50, 193)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(99, 13)
+        Me.Label2.Size = New System.Drawing.Size(129, 13)
         Me.Label2.TabIndex = 13
-        Me.Label2.Text = "refresh time every : "
+        Me.Label2.Text = "REFRESH TIME EVERY:"
         '
         'TextBoxInterval
         '
-        Me.TextBoxInterval.Location = New System.Drawing.Point(155, 173)
+        Me.TextBoxInterval.Location = New System.Drawing.Point(195, 190)
         Me.TextBoxInterval.Name = "TextBoxInterval"
         Me.TextBoxInterval.Size = New System.Drawing.Size(31, 20)
         Me.TextBoxInterval.TabIndex = 12
@@ -172,7 +173,7 @@ Partial Class OptionsForm
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(192, 176)
+        Me.Label4.Location = New System.Drawing.Point(232, 193)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(47, 13)
         Me.Label4.TabIndex = 13
@@ -184,20 +185,31 @@ Partial Class OptionsForm
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 24
-        Me.Button2.Text = "Parcourir"
+        Me.Button2.Text = "BROWSE"
         Me.Button2.UseVisualStyleBackColor = True
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(158, 132)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(114, 17)
+        Me.CheckBox1.TabIndex = 18
+        Me.CheckBox1.Text = "CHECK ""DERIV""?"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'OptionsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(363, 236)
+        Me.ClientSize = New System.Drawing.Size(363, 255)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.TextBoxCol4)
         Me.Controls.Add(Me.TextBoxCol3)
         Me.Controls.Add(Me.TextBoxCol2)
         Me.Controls.Add(Me.LabelRange)
         Me.Controls.Add(Me.TextBoxRange)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.CheckBoxReadTE)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label3)
@@ -240,4 +252,5 @@ Partial Class OptionsForm
     Friend WithEvents TextBoxInterval As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Button2 As Button
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

@@ -2,6 +2,7 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Options.FilePath = TextBoxFilePath.Text
         Options.SheetName = TextBoxSheetName.Text
+        Options.CheckDer = CheckBox1.Checked
         Options.Column1 = TextBoxCol1.Text
         Options.Column2 = TextBoxCol2.Text
         Options.Column3 = TextBoxCol3.Text
@@ -34,6 +35,7 @@
     Private Sub OptionsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TextBoxFilePath.Text = Options.FilePath
         TextBoxSheetName.Text = Options.SheetName
+        CheckBox1.Checked = Options.CheckDer
         TextBoxCol1.Text = Options.Column1
         TextBoxCol2.Text = Options.Column2
         TextBoxCol3.Text = Options.Column3
@@ -53,7 +55,7 @@
 
     End Sub
 
-    Private Sub CheckBoxReadTE_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxReadTE.CheckedChanged
+    Private Sub CheckBoxReadTE_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxReadTE.CheckedChanged, CheckBox1.CheckedChanged
         If CheckBoxReadTE.Checked Then
             TextBoxRange.Enabled = False
         Else

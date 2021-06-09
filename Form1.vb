@@ -49,6 +49,9 @@ Public Class Form1
 
         DrawChart(main_points, "CONTROLED points", arrayref, arrayControl, SeriesChartType.Point, Color.ForestGreen, 2.5F)
 
+        If (Options.CheckDer) Then
+            CheckPoints(main_points, (Moy(arrayControl) + 3 * sigma), (Moy(arrayControl) - 3 * sigma), Moy(arrayControl))
+        End If
         ' ==================================== DRAW MOY (average)
 
         DrawHorizantalLine(Moy_chart_points, "Moy", arrayref, Moy(arrayControl), SeriesChartType.Line, Color.Blue, 1.8F)
@@ -125,6 +128,10 @@ Public Class Form1
 
         DrawChart(main_points2, "CONTROLED points", arrayref, etendue, SeriesChartType.Point, Color.ForestGreen, 2.5F)
 
+
+        If (Options.CheckDer) Then
+            CheckPoints(main_points2, d4 * Moy(etendue), D3 * Moy(etendue), Moy(etendue))
+        End If
         ' ==================================== DRAW MOY (average)
 
         DrawHorizantalLine(Moy_chart_points2, "Moy", arrayref, Moy(etendue), SeriesChartType.Line, Color.Blue, 1.8F)
@@ -185,6 +192,20 @@ Public Class Form1
 
     End Sub
 
+    Dim pointY As Double
+    Private Sub CheckPoints(chart As DataVisualization.Charting.Series, ucl As Double, lcl As Double, moy As Double)
+
+        For i = 1 To chart.Points().Count - 1
+            pointY = chart.Points(i).YValues(0)
+            Debug.WriteLine(pointY)
+
+            If pointY < lcl Or pointY > ucl Then
+                chart.Points(i).Color = Color.Red
+            End If
+
+        Next
+
+    End Sub
     Public Sub DrawChart(chart As DataVisualization.Charting.Series, name As String, refarray As Array, ControlData As Array, ChartType As SeriesChartType, color As Color, Border As Double)
         chart.Points.Clear()
         chart.Name = name
@@ -237,6 +258,7 @@ Public Class Form1
         'DrawAllCharts()
         'ReadFromXL()
 
+        OptionsForm.Show()
         ' =============== insitialize charts series
         Try
             Chart1.Series.Add(main_chart_points)
@@ -271,6 +293,7 @@ Public Class Form1
         Catch ex As Exception
             'MsgBox(ex.Message)
         End Try
+
     End Sub
 
 
@@ -523,7 +546,6 @@ Public Class Form1
             MsgBox("TI doit etre reelle")
             TextboxTI.Select()
         End Try
-
     End Sub
 
     Private Sub OptionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OptionsToolStripMenuItem.Click

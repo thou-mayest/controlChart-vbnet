@@ -1,6 +1,7 @@
 ﻿Public Class Options
     Public Shared FilePath As String = "Classeur2.xlsx"
     Public Shared SheetName As String = "Exemple2_CSV"
+    Public Shared CheckDer As Boolean = False
     Public Shared ColumnNb As Integer = 4
     Public Shared Column1 As String = "D"
     Public Shared Column2 As String = "D"

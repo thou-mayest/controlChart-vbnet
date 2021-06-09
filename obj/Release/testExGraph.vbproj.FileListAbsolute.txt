@@ -10,16 +10,17 @@ C:\Users\brahmi\source\repos\testExGraph\obj\Release\testExGraph.vbproj.Generate
 C:\Users\brahmi\source\repos\testExGraph\obj\Release\testExGraph.exe
 C:\Users\brahmi\source\repos\testExGraph\obj\Release\testExGraph.xml
 C:\Users\brahmi\source\repos\testExGraph\obj\Release\testExGraph.pdb
-C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\bin\Release\testExGraph.exe.config
-C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\bin\Release\testExGraph.exe
-C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\bin\Release\testExGraph.pdb
-C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\bin\Release\testExGraph.xml
 C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.vbprojAssemblyReference.cache
 C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.vbproj.ResolveComReference.cache
 C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.Form1.resources
 C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.Resources.resources
 C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.vbproj.GenerateResource.cache
-C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.exe
-C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.xml
-C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.pdb
 C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.OptionsForm.resources
+C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\testExGraph.LoginForm.resources
+C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\bin\Release\Control chart app.exe.config
+C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\bin\Release\Control chart app.exe
+C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\bin\Release\Control chart app.pdb
+C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\bin\Release\Control chart app.xml
+C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\Control chart app.exe
+C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\Control chart app.xml
+C:\Users\brahmi\source\repos\testExGraph\controlChart-vbnet\obj\Release\Control chart app.pdb
