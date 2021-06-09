@@ -61,6 +61,18 @@ Partial Class Form1
         Me.Label9 = New System.Windows.Forms.Label()
         Me.LabelCP2 = New System.Windows.Forms.Label()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.LabelUCLword = New System.Windows.Forms.Label()
+        Me.LabelUCL = New System.Windows.Forms.Label()
+        Me.LabelLCLword = New System.Windows.Forms.Label()
+        Me.LabelLCL = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.LabelRange = New System.Windows.Forms.Label()
+        Me.LabelUCLword2 = New System.Windows.Forms.Label()
+        Me.LabelUCL2 = New System.Windows.Forms.Label()
+        Me.LabelLCLword2 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.LabelRange2 = New System.Windows.Forms.Label()
+        Me.LabelLCL2 = New System.Windows.Forms.Label()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -257,6 +269,12 @@ Partial Class Form1
         Me.SplitContainer1.Panel1.Controls.Add(Me.TextboxTI)
         Me.SplitContainer1.Panel1.Controls.Add(Me.LabelCPk)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label5)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.LabelLCL)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.LabelRange)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Label13)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.LabelLCLword)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.LabelUCL)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.LabelUCLword)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label12)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label7)
         Me.SplitContainer1.Panel1.Controls.Add(Me.LabelCpm)
@@ -273,11 +291,17 @@ Partial Class Form1
         Me.SplitContainer1.Panel2.Controls.Add(Me.TextboxTI2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.LabelCPK2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label3)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.LabelLCL2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label10)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.LabelRange2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label6)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Label15)
         Me.SplitContainer1.Panel2.Controls.Add(Me.LabelCpm2)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.LabelLCLword2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label9)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.LabelUCL2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.LabelCP2)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.LabelUCLword2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Chart2)
         Me.SplitContainer1.Size = New System.Drawing.Size(1178, 506)
         Me.SplitContainer1.SplitterDistance = 255
@@ -464,6 +488,138 @@ Partial Class Form1
         Me.Chart2.TabIndex = 14
         Me.Chart2.Text = "Chart2"
         '
+        'LabelUCLword
+        '
+        Me.LabelUCLword.AutoSize = True
+        Me.LabelUCLword.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelUCLword.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelUCLword.Location = New System.Drawing.Point(3, 65)
+        Me.LabelUCLword.Name = "LabelUCLword"
+        Me.LabelUCLword.Size = New System.Drawing.Size(39, 20)
+        Me.LabelUCLword.TabIndex = 9
+        Me.LabelUCLword.Text = "UCL:"
+        '
+        'LabelUCL
+        '
+        Me.LabelUCL.AutoSize = True
+        Me.LabelUCL.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelUCL.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelUCL.Location = New System.Drawing.Point(3, 81)
+        Me.LabelUCL.Name = "LabelUCL"
+        Me.LabelUCL.Size = New System.Drawing.Size(16, 20)
+        Me.LabelUCL.TabIndex = 9
+        Me.LabelUCL.Text = "0"
+        '
+        'LabelLCLword
+        '
+        Me.LabelLCLword.AutoSize = True
+        Me.LabelLCLword.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelLCLword.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelLCLword.Location = New System.Drawing.Point(3, 114)
+        Me.LabelLCLword.Name = "LabelLCLword"
+        Me.LabelLCLword.Size = New System.Drawing.Size(38, 20)
+        Me.LabelLCLword.TabIndex = 9
+        Me.LabelLCLword.Text = "LCL:"
+        '
+        'LabelLCL
+        '
+        Me.LabelLCL.AutoSize = True
+        Me.LabelLCL.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelLCL.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelLCL.Location = New System.Drawing.Point(3, 130)
+        Me.LabelLCL.Name = "LabelLCL"
+        Me.LabelLCL.Size = New System.Drawing.Size(16, 20)
+        Me.LabelLCL.TabIndex = 9
+        Me.LabelLCL.Text = "0"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.White
+        Me.Label13.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(3, 157)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(59, 20)
+        Me.Label13.TabIndex = 9
+        Me.Label13.Text = "RANGE:"
+        '
+        'LabelRange
+        '
+        Me.LabelRange.AutoSize = True
+        Me.LabelRange.BackColor = System.Drawing.Color.White
+        Me.LabelRange.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelRange.Location = New System.Drawing.Point(3, 173)
+        Me.LabelRange.Name = "LabelRange"
+        Me.LabelRange.Size = New System.Drawing.Size(16, 20)
+        Me.LabelRange.TabIndex = 9
+        Me.LabelRange.Text = "0"
+        '
+        'LabelUCLword2
+        '
+        Me.LabelUCLword2.AutoSize = True
+        Me.LabelUCLword2.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelUCLword2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelUCLword2.Location = New System.Drawing.Point(3, 64)
+        Me.LabelUCLword2.Name = "LabelUCLword2"
+        Me.LabelUCLword2.Size = New System.Drawing.Size(39, 20)
+        Me.LabelUCLword2.TabIndex = 9
+        Me.LabelUCLword2.Text = "UCL:"
+        '
+        'LabelUCL2
+        '
+        Me.LabelUCL2.AutoSize = True
+        Me.LabelUCL2.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelUCL2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelUCL2.Location = New System.Drawing.Point(3, 80)
+        Me.LabelUCL2.Name = "LabelUCL2"
+        Me.LabelUCL2.Size = New System.Drawing.Size(16, 20)
+        Me.LabelUCL2.TabIndex = 9
+        Me.LabelUCL2.Text = "0"
+        '
+        'LabelLCLword2
+        '
+        Me.LabelLCLword2.AutoSize = True
+        Me.LabelLCLword2.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelLCLword2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelLCLword2.Location = New System.Drawing.Point(3, 113)
+        Me.LabelLCLword2.Name = "LabelLCLword2"
+        Me.LabelLCLword2.Size = New System.Drawing.Size(38, 20)
+        Me.LabelLCLword2.TabIndex = 9
+        Me.LabelLCLword2.Text = "LCL:"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.BackColor = System.Drawing.Color.White
+        Me.Label15.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(3, 156)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(59, 20)
+        Me.Label15.TabIndex = 9
+        Me.Label15.Text = "RANGE:"
+        '
+        'LabelRange2
+        '
+        Me.LabelRange2.AutoSize = True
+        Me.LabelRange2.BackColor = System.Drawing.Color.White
+        Me.LabelRange2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelRange2.Location = New System.Drawing.Point(3, 172)
+        Me.LabelRange2.Name = "LabelRange2"
+        Me.LabelRange2.Size = New System.Drawing.Size(16, 20)
+        Me.LabelRange2.TabIndex = 9
+        Me.LabelRange2.Text = "0"
+        '
+        'LabelLCL2
+        '
+        Me.LabelLCL2.AutoSize = True
+        Me.LabelLCL2.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelLCL2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelLCL2.Location = New System.Drawing.Point(3, 129)
+        Me.LabelLCL2.Name = "LabelLCL2"
+        Me.LabelLCL2.Size = New System.Drawing.Size(16, 20)
+        Me.LabelLCL2.TabIndex = 9
+        Me.LabelLCL2.Text = "0"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -527,4 +683,16 @@ Partial Class Form1
     Friend WithEvents LabelCpm As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents LabelCpm2 As Label
+    Friend WithEvents LabelLCL As Label
+    Friend WithEvents LabelRange As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents LabelLCLword As Label
+    Friend WithEvents LabelUCL As Label
+    Friend WithEvents LabelUCLword As Label
+    Friend WithEvents LabelLCL2 As Label
+    Friend WithEvents LabelRange2 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents LabelLCLword2 As Label
+    Friend WithEvents LabelUCL2 As Label
+    Friend WithEvents LabelUCLword2 As Label
 End Class

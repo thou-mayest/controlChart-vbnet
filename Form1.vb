@@ -62,12 +62,19 @@ Public Class Form1
         DrawHorizantalLine(UCL_chart_points, "LSC", arrayref, (Moy(arrayControl) + 3 * sigma), SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
         DrawHorizantalLine(LCL_chart_points, "LCL", arrayref, (Moy(arrayControl) - 3 * sigma), SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
 
+        LabelUCL.Invoke(Sub()
+                            LabelUCL.Text = String.Format("{0:0.00}", (Moy(arrayControl) + 3 * sigma))
+                        End Sub)
+        LabelLCL.Invoke(Sub()
+                            LabelLCL.Text = String.Format("{0:0.00}", (Moy(arrayControl) - 3 * sigma))
+                        End Sub)
+
         DrawHorizantalLine(ts_chart_points, "TS", arrayref, Convert.ToDouble(TextboxTS.Text.Replace(".", ",")), SeriesChartType.FastLine, Color.Red, 1)
         DrawHorizantalLine(TI_chart_points, "TI", arrayref, Convert.ToDouble(TextboxTI.Text.Replace(".", ",")), SeriesChartType.FastLine, Color.Red, 1)
 
 
         labelCP.Invoke(Sub()
-                           cp = (Convert.ToDouble(TextboxTS.Text.Replace(".", ",")) - Convert.ToDouble(TextboxTI.Text.Replace(".", ","))) / 6 * sigma
+                           cp = (Convert.ToDouble(TextboxTS.Text.Replace(".", ",")) - Convert.ToDouble(TextboxTI.Text.Replace(".", ","))) / (6 * sigma)
                            labelCP.Text = String.Format("{0:0.000}", cp)
                            Debug.WriteLine(cp & " cp")
                            If cp < 1.33 Then
@@ -82,9 +89,11 @@ Public Class Form1
 
 
                        End Sub)
+
+
         LabelCPk.Invoke(Sub()
-                            Dim val1 = (Moy(arrayControl) - Convert.ToDouble(TextboxTI.Text.Replace(".", ","))) / 3 * sigma
-                            Dim val2 = (Convert.ToDouble(TextboxTS.Text.Replace(".", ",")) - Moy(arrayControl)) / 3 * sigma
+                            Dim val1 = (Moy(arrayControl) - Convert.ToDouble(TextboxTI.Text.Replace(".", ","))) / (3 * sigma)
+                            Dim val2 = (Convert.ToDouble(TextboxTS.Text.Replace(".", ",")) - Moy(arrayControl)) / (3 * sigma)
                             cpk = Math.Min(val1, val2)
                             LabelCPk.Text = String.Format("{0:0.000}", cpk)
                             If cpk < 1.33 Then
@@ -141,12 +150,19 @@ Public Class Form1
         DrawHorizantalLine(UCL_chart_points2, "LSC", arrayref, d4 * Moy(etendue), SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
         DrawHorizantalLine(LCL_chart_points2, "LCL", arrayref, D3 * Moy(etendue), SeriesChartType.FastLine, Color.PaleVioletRed, 1.5)
 
+        LabelUCL2.Invoke(Sub()
+                             LabelUCL2.Text = String.Format("{0:0.00}", (Moy(arrayControl) + 3 * sigma))
+                         End Sub)
+        LabelLCL2.Invoke(Sub()
+                             LabelLCL2.Text = String.Format("{0:0.00}", (Moy(arrayControl) - 3 * sigma))
+                         End Sub)
+
         DrawHorizantalLine(ts_chart_points2, "TS", arrayref, Convert.ToDouble(TextboxTS2.Text.Replace(".", ",")), SeriesChartType.FastLine, Color.Red, 1)
         DrawHorizantalLine(TI_chart_points2, "TI", arrayref, Convert.ToDouble(TextboxTI2.Text.Replace(".", ",")), SeriesChartType.FastLine, Color.Red, 1)
 
         ' ==============://///////////// CHANGE LABEL NAME AND CALC CPK  &&..
         LabelCP2.Invoke(Sub()
-                            cp = (Convert.ToDouble(TextboxTS2.Text.Replace(".", ",")) - Convert.ToDouble(TextboxTI2.Text.Replace(".", ","))) / 6 * sigma
+                            cp = (Convert.ToDouble(TextboxTS2.Text.Replace(".", ",")) - Convert.ToDouble(TextboxTI2.Text.Replace(".", ","))) / (6 * sigma)
                             LabelCP2.Text = String.Format("{0:0.00}", cp)
                             If cp < 1.33 Then
                                 LabelCP2.ForeColor = Color.Red
@@ -158,8 +174,8 @@ Public Class Form1
                             End If
                         End Sub)
         LabelCPK2.Invoke(Sub()
-                             Dim val1 = (Moy(arrayControl) - Convert.ToDouble(TextboxTI2.Text.Replace(".", ","))) / 3 * sigma
-                             Dim val2 = (Convert.ToDouble(TextboxTS2.Text.Replace(".", ",")) - Moy(arrayControl)) / 3 * sigma
+                             Dim val1 = (Moy(arrayControl) - Convert.ToDouble(TextboxTI2.Text.Replace(".", ","))) / (3 * sigma)
+                             Dim val2 = (Convert.ToDouble(TextboxTS2.Text.Replace(".", ",")) - Moy(arrayControl)) / (3 * sigma)
                              cpk = Math.Min(val1, val2)
                              LabelCPK2.Text = String.Format("{0:0.00}", cpk)
                              If cpk < 1.33 Then
@@ -288,6 +304,17 @@ Public Class Form1
 
         OptionsForm.Show()
         ' =============== insitialize charts series
+        LabelUCL.ForeColor = Color.PaleVioletRed
+        LabelUCLword.ForeColor = Color.PaleVioletRed
+
+        LabelLCL.ForeColor = Color.PaleVioletRed
+        LabelLCLword.ForeColor = Color.PaleVioletRed
+
+        LabelUCL2.ForeColor = Color.PaleVioletRed
+        LabelUCLword2.ForeColor = Color.PaleVioletRed
+
+        LabelLCL2.ForeColor = Color.PaleVioletRed
+        LabelLCLword2.ForeColor = Color.PaleVioletRed
         Try
             Chart1.Series.Add(main_chart_points)
             main_chart_points.Name = "MAIN CHART"
@@ -404,7 +431,12 @@ Public Class Form1
         Dim P4(range + 1) As String
         Dim etendue(range + 1) As Double
 
-
+        LabelRange.Invoke(Sub()
+                              LabelRange.Text = range
+                          End Sub)
+        LabelRange2.Invoke(Sub()
+                               LabelRange2.Text = range
+                           End Sub)
 
         Debug.WriteLine(range & " : range")
         ' =====================================  POPULATE FUNCTIONS p1 and ref
@@ -609,7 +641,7 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click, Label12.Click
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click, Label12.Click, LabelUCL.Click, LabelRange.Click, LabelLCL.Click, LabelUCLword.Click, Label13.Click, LabelLCLword.Click, LabelUCLword2.Click, LabelUCL2.Click, LabelRange2.Click, LabelLCLword2.Click, LabelLCL2.Click, Label15.Click
 
     End Sub
 
