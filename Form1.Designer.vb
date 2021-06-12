@@ -47,6 +47,12 @@ Partial Class Form1
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.Title1 = New System.Windows.Forms.Label()
+        Me.LabelLCL = New System.Windows.Forms.Label()
+        Me.LabelRange = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.LabelLCLword = New System.Windows.Forms.Label()
+        Me.LabelUCL = New System.Windows.Forms.Label()
+        Me.LabelUCLword = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.LabelCpm = New System.Windows.Forms.Label()
         Me.Title2 = New System.Windows.Forms.Label()
@@ -55,24 +61,18 @@ Partial Class Form1
         Me.TextboxTI2 = New System.Windows.Forms.TextBox()
         Me.LabelCPK2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.LabelCpm2 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.LabelCP2 = New System.Windows.Forms.Label()
-        Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.LabelUCLword = New System.Windows.Forms.Label()
-        Me.LabelUCL = New System.Windows.Forms.Label()
-        Me.LabelLCLword = New System.Windows.Forms.Label()
-        Me.LabelLCL = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.LabelRange = New System.Windows.Forms.Label()
-        Me.LabelUCLword2 = New System.Windows.Forms.Label()
-        Me.LabelUCL2 = New System.Windows.Forms.Label()
-        Me.LabelLCLword2 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.LabelRange2 = New System.Windows.Forms.Label()
         Me.LabelLCL2 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.LabelRange2 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.LabelCpm2 = New System.Windows.Forms.Label()
+        Me.LabelLCLword2 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.LabelUCL2 = New System.Windows.Forms.Label()
+        Me.LabelCP2 = New System.Windows.Forms.Label()
+        Me.LabelUCLword2 = New System.Windows.Forms.Label()
+        Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -96,9 +96,9 @@ Partial Class Form1
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(3, 34)
+        Me.Chart1.Location = New System.Drawing.Point(3, 39)
         Me.Chart1.Name = "Chart1"
-        Me.Chart1.Size = New System.Drawing.Size(1172, 218)
+        Me.Chart1.Size = New System.Drawing.Size(1172, 219)
         Me.Chart1.TabIndex = 1
         Me.Chart1.Text = "Chart1"
         Title3.Name = "Title1"
@@ -109,7 +109,7 @@ Partial Class Form1
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.BackColor = System.Drawing.Color.ForestGreen
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(1048, 535)
+        Me.Button1.Location = New System.Drawing.Point(1048, 539)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(118, 43)
         Me.Button1.TabIndex = 1
@@ -121,7 +121,7 @@ Partial Class Form1
         Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button2.BackColor = System.Drawing.Color.Red
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(923, 535)
+        Me.Button2.Location = New System.Drawing.Point(923, 539)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(113, 43)
         Me.Button2.TabIndex = 10
@@ -134,7 +134,7 @@ Partial Class Form1
         'TextboxTS
         '
         Me.TextboxTS.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextboxTS.Location = New System.Drawing.Point(1083, 134)
+        Me.TextboxTS.Location = New System.Drawing.Point(1083, 140)
         Me.TextboxTS.Name = "TextboxTS"
         Me.TextboxTS.Size = New System.Drawing.Size(68, 20)
         Me.TextboxTS.TabIndex = 11
@@ -143,7 +143,7 @@ Partial Class Form1
         'TextboxTI
         '
         Me.TextboxTI.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextboxTI.Location = New System.Drawing.Point(1083, 160)
+        Me.TextboxTI.Location = New System.Drawing.Point(1083, 166)
         Me.TextboxTI.Name = "TextboxTI"
         Me.TextboxTI.Size = New System.Drawing.Size(68, 20)
         Me.TextboxTI.TabIndex = 12
@@ -154,7 +154,7 @@ Partial Class Form1
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(974, 137)
+        Me.Label4.Location = New System.Drawing.Point(974, 143)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(109, 13)
         Me.Label4.TabIndex = 9
@@ -165,7 +165,7 @@ Partial Class Form1
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(974, 160)
+        Me.Label5.Location = New System.Drawing.Point(974, 166)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(115, 13)
         Me.Label5.TabIndex = 9
@@ -177,7 +177,7 @@ Partial Class Form1
         Me.labelCP.AutoSize = True
         Me.labelCP.BackColor = System.Drawing.Color.White
         Me.labelCP.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelCP.Location = New System.Drawing.Point(1045, 200)
+        Me.labelCP.Location = New System.Drawing.Point(1045, 206)
         Me.labelCP.Name = "labelCP"
         Me.labelCP.Size = New System.Drawing.Size(15, 16)
         Me.labelCP.TabIndex = 9
@@ -189,7 +189,7 @@ Partial Class Form1
         Me.LabelCPk.AutoSize = True
         Me.LabelCPk.BackColor = System.Drawing.Color.White
         Me.LabelCPk.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelCPk.Location = New System.Drawing.Point(1045, 216)
+        Me.LabelCPk.Location = New System.Drawing.Point(1045, 222)
         Me.LabelCPk.Name = "LabelCPk"
         Me.LabelCPk.Size = New System.Drawing.Size(15, 16)
         Me.LabelCPk.TabIndex = 13
@@ -201,7 +201,7 @@ Partial Class Form1
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.White
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(1008, 200)
+        Me.Label7.Location = New System.Drawing.Point(1008, 206)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(28, 16)
         Me.Label7.TabIndex = 9
@@ -213,7 +213,7 @@ Partial Class Form1
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.White
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(1008, 216)
+        Me.Label8.Location = New System.Drawing.Point(1008, 222)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(35, 16)
         Me.Label8.TabIndex = 13
@@ -239,7 +239,7 @@ Partial Class Form1
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(138, 28)
         Me.OptionsToolStripMenuItem.Text = "options"
         '
         'Panel1
@@ -250,7 +250,7 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.SplitContainer1)
         Me.Panel1.Location = New System.Drawing.Point(0, 27)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1178, 506)
+        Me.Panel1.Size = New System.Drawing.Size(1178, 510)
         Me.Panel1.TabIndex = 15
         '
         'SplitContainer1
@@ -303,8 +303,8 @@ Partial Class Form1
         Me.SplitContainer1.Panel2.Controls.Add(Me.LabelCP2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.LabelUCLword2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Chart2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1178, 506)
-        Me.SplitContainer1.SplitterDistance = 255
+        Me.SplitContainer1.Size = New System.Drawing.Size(1178, 510)
+        Me.SplitContainer1.SplitterDistance = 261
         Me.SplitContainer1.TabIndex = 0
         '
         'Title1
@@ -314,11 +314,77 @@ Partial Class Form1
         Me.Title1.AutoSize = True
         Me.Title1.BackColor = System.Drawing.Color.Silver
         Me.Title1.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Title1.Location = New System.Drawing.Point(418, 0)
+        Me.Title1.Location = New System.Drawing.Point(418, 4)
         Me.Title1.Name = "Title1"
         Me.Title1.Size = New System.Drawing.Size(205, 32)
         Me.Title1.TabIndex = 9
         Me.Title1.Text = "X BAR CHART"
+        '
+        'LabelLCL
+        '
+        Me.LabelLCL.AutoSize = True
+        Me.LabelLCL.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelLCL.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelLCL.Location = New System.Drawing.Point(3, 130)
+        Me.LabelLCL.Name = "LabelLCL"
+        Me.LabelLCL.Size = New System.Drawing.Size(16, 20)
+        Me.LabelLCL.TabIndex = 9
+        Me.LabelLCL.Text = "0"
+        '
+        'LabelRange
+        '
+        Me.LabelRange.AutoSize = True
+        Me.LabelRange.BackColor = System.Drawing.Color.White
+        Me.LabelRange.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelRange.Location = New System.Drawing.Point(3, 173)
+        Me.LabelRange.Name = "LabelRange"
+        Me.LabelRange.Size = New System.Drawing.Size(16, 20)
+        Me.LabelRange.TabIndex = 9
+        Me.LabelRange.Text = "0"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.White
+        Me.Label13.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(3, 157)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(59, 20)
+        Me.Label13.TabIndex = 9
+        Me.Label13.Text = "RANGE:"
+        '
+        'LabelLCLword
+        '
+        Me.LabelLCLword.AutoSize = True
+        Me.LabelLCLword.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelLCLword.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelLCLword.Location = New System.Drawing.Point(3, 114)
+        Me.LabelLCLword.Name = "LabelLCLword"
+        Me.LabelLCLword.Size = New System.Drawing.Size(38, 20)
+        Me.LabelLCLword.TabIndex = 9
+        Me.LabelLCLword.Text = "LCL:"
+        '
+        'LabelUCL
+        '
+        Me.LabelUCL.AutoSize = True
+        Me.LabelUCL.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelUCL.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelUCL.Location = New System.Drawing.Point(3, 81)
+        Me.LabelUCL.Name = "LabelUCL"
+        Me.LabelUCL.Size = New System.Drawing.Size(16, 20)
+        Me.LabelUCL.TabIndex = 9
+        Me.LabelUCL.Text = "0"
+        '
+        'LabelUCLword
+        '
+        Me.LabelUCLword.AutoSize = True
+        Me.LabelUCLword.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelUCLword.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelUCLword.Location = New System.Drawing.Point(3, 65)
+        Me.LabelUCLword.Name = "LabelUCLword"
+        Me.LabelUCLword.Size = New System.Drawing.Size(39, 20)
+        Me.LabelUCLword.TabIndex = 9
+        Me.LabelUCLword.Text = "UCL:"
         '
         'Label12
         '
@@ -326,7 +392,7 @@ Partial Class Form1
         Me.Label12.AutoSize = True
         Me.Label12.BackColor = System.Drawing.Color.White
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(1008, 184)
+        Me.Label12.Location = New System.Drawing.Point(1008, 190)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(39, 16)
         Me.Label12.TabIndex = 9
@@ -338,7 +404,7 @@ Partial Class Form1
         Me.LabelCpm.AutoSize = True
         Me.LabelCpm.BackColor = System.Drawing.Color.White
         Me.LabelCpm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelCpm.Location = New System.Drawing.Point(1045, 184)
+        Me.LabelCpm.Location = New System.Drawing.Point(1045, 190)
         Me.LabelCpm.Name = "LabelCpm"
         Me.LabelCpm.Size = New System.Drawing.Size(15, 16)
         Me.LabelCpm.TabIndex = 9
@@ -363,7 +429,7 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.White
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(1008, 209)
+        Me.Label1.Location = New System.Drawing.Point(1008, 207)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(35, 16)
         Me.Label1.TabIndex = 21
@@ -372,7 +438,7 @@ Partial Class Form1
         'TextboxTS2
         '
         Me.TextboxTS2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextboxTS2.Location = New System.Drawing.Point(1083, 123)
+        Me.TextboxTS2.Location = New System.Drawing.Point(1083, 121)
         Me.TextboxTS2.Name = "TextboxTS2"
         Me.TextboxTS2.Size = New System.Drawing.Size(68, 20)
         Me.TextboxTS2.TabIndex = 19
@@ -381,7 +447,7 @@ Partial Class Form1
         'TextboxTI2
         '
         Me.TextboxTI2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextboxTI2.Location = New System.Drawing.Point(1083, 149)
+        Me.TextboxTI2.Location = New System.Drawing.Point(1083, 147)
         Me.TextboxTI2.Name = "TextboxTI2"
         Me.TextboxTI2.Size = New System.Drawing.Size(68, 20)
         Me.TextboxTI2.TabIndex = 20
@@ -393,7 +459,7 @@ Partial Class Form1
         Me.LabelCPK2.AutoSize = True
         Me.LabelCPK2.BackColor = System.Drawing.Color.White
         Me.LabelCPK2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelCPK2.Location = New System.Drawing.Point(1053, 209)
+        Me.LabelCPK2.Location = New System.Drawing.Point(1053, 207)
         Me.LabelCPK2.Name = "LabelCPK2"
         Me.LabelCPK2.Size = New System.Drawing.Size(15, 16)
         Me.LabelCPK2.TabIndex = 22
@@ -404,11 +470,22 @@ Partial Class Form1
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(974, 152)
+        Me.Label3.Location = New System.Drawing.Point(974, 150)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(115, 13)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "LOWER SPEC LIMIT: "
+        '
+        'LabelLCL2
+        '
+        Me.LabelLCL2.AutoSize = True
+        Me.LabelLCL2.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelLCL2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelLCL2.Location = New System.Drawing.Point(3, 129)
+        Me.LabelLCL2.Name = "LabelLCL2"
+        Me.LabelLCL2.Size = New System.Drawing.Size(16, 20)
+        Me.LabelLCL2.TabIndex = 9
+        Me.LabelLCL2.Text = "0"
         '
         'Label10
         '
@@ -416,11 +493,22 @@ Partial Class Form1
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.White
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(1008, 177)
+        Me.Label10.Location = New System.Drawing.Point(1008, 175)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(39, 16)
         Me.Label10.TabIndex = 16
         Me.Label10.Text = "Cpm:"
+        '
+        'LabelRange2
+        '
+        Me.LabelRange2.AutoSize = True
+        Me.LabelRange2.BackColor = System.Drawing.Color.White
+        Me.LabelRange2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelRange2.Location = New System.Drawing.Point(3, 172)
+        Me.LabelRange2.Name = "LabelRange2"
+        Me.LabelRange2.Size = New System.Drawing.Size(16, 20)
+        Me.LabelRange2.TabIndex = 9
+        Me.LabelRange2.Text = "0"
         '
         'Label6
         '
@@ -428,11 +516,22 @@ Partial Class Form1
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.White
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(1008, 193)
+        Me.Label6.Location = New System.Drawing.Point(1008, 191)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(28, 16)
         Me.Label6.TabIndex = 16
         Me.Label6.Text = "Cp:"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.BackColor = System.Drawing.Color.White
+        Me.Label15.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(3, 156)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(59, 20)
+        Me.Label15.TabIndex = 9
+        Me.Label15.Text = "RANGE:"
         '
         'LabelCpm2
         '
@@ -440,22 +539,44 @@ Partial Class Form1
         Me.LabelCpm2.AutoSize = True
         Me.LabelCpm2.BackColor = System.Drawing.Color.White
         Me.LabelCpm2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelCpm2.Location = New System.Drawing.Point(1053, 177)
+        Me.LabelCpm2.Location = New System.Drawing.Point(1053, 175)
         Me.LabelCpm2.Name = "LabelCpm2"
         Me.LabelCpm2.Size = New System.Drawing.Size(15, 16)
         Me.LabelCpm2.TabIndex = 18
         Me.LabelCpm2.Text = "0"
+        '
+        'LabelLCLword2
+        '
+        Me.LabelLCLword2.AutoSize = True
+        Me.LabelLCLword2.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelLCLword2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelLCLword2.Location = New System.Drawing.Point(3, 113)
+        Me.LabelLCLword2.Name = "LabelLCLword2"
+        Me.LabelLCLword2.Size = New System.Drawing.Size(38, 20)
+        Me.LabelLCLword2.TabIndex = 9
+        Me.LabelLCLword2.Text = "LCL:"
         '
         'Label9
         '
         Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(974, 126)
+        Me.Label9.Location = New System.Drawing.Point(974, 124)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(109, 13)
         Me.Label9.TabIndex = 17
         Me.Label9.Text = "UPPER SPEC LIMIT:"
+        '
+        'LabelUCL2
+        '
+        Me.LabelUCL2.AutoSize = True
+        Me.LabelUCL2.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelUCL2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelUCL2.Location = New System.Drawing.Point(3, 80)
+        Me.LabelUCL2.Name = "LabelUCL2"
+        Me.LabelUCL2.Size = New System.Drawing.Size(16, 20)
+        Me.LabelUCL2.TabIndex = 9
+        Me.LabelUCL2.Text = "0"
         '
         'LabelCP2
         '
@@ -463,11 +584,22 @@ Partial Class Form1
         Me.LabelCP2.AutoSize = True
         Me.LabelCP2.BackColor = System.Drawing.Color.White
         Me.LabelCP2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelCP2.Location = New System.Drawing.Point(1053, 193)
+        Me.LabelCP2.Location = New System.Drawing.Point(1053, 191)
         Me.LabelCP2.Name = "LabelCP2"
         Me.LabelCP2.Size = New System.Drawing.Size(15, 16)
         Me.LabelCP2.TabIndex = 18
         Me.LabelCP2.Text = "0"
+        '
+        'LabelUCLword2
+        '
+        Me.LabelUCLword2.AutoSize = True
+        Me.LabelUCLword2.BackColor = System.Drawing.SystemColors.Window
+        Me.LabelUCLword2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelUCLword2.Location = New System.Drawing.Point(3, 64)
+        Me.LabelUCLword2.Name = "LabelUCLword2"
+        Me.LabelUCLword2.Size = New System.Drawing.Size(39, 20)
+        Me.LabelUCLword2.TabIndex = 9
+        Me.LabelUCLword2.Text = "UCL:"
         '
         'Chart2
         '
@@ -484,148 +616,16 @@ Partial Class Form1
         Me.Chart2.Legends.Add(Legend2)
         Me.Chart2.Location = New System.Drawing.Point(3, 34)
         Me.Chart2.Name = "Chart2"
-        Me.Chart2.Size = New System.Drawing.Size(1172, 213)
+        Me.Chart2.Size = New System.Drawing.Size(1172, 211)
         Me.Chart2.TabIndex = 14
         Me.Chart2.Text = "Chart2"
-        '
-        'LabelUCLword
-        '
-        Me.LabelUCLword.AutoSize = True
-        Me.LabelUCLword.BackColor = System.Drawing.SystemColors.Window
-        Me.LabelUCLword.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelUCLword.Location = New System.Drawing.Point(3, 65)
-        Me.LabelUCLword.Name = "LabelUCLword"
-        Me.LabelUCLword.Size = New System.Drawing.Size(39, 20)
-        Me.LabelUCLword.TabIndex = 9
-        Me.LabelUCLword.Text = "UCL:"
-        '
-        'LabelUCL
-        '
-        Me.LabelUCL.AutoSize = True
-        Me.LabelUCL.BackColor = System.Drawing.SystemColors.Window
-        Me.LabelUCL.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelUCL.Location = New System.Drawing.Point(3, 81)
-        Me.LabelUCL.Name = "LabelUCL"
-        Me.LabelUCL.Size = New System.Drawing.Size(16, 20)
-        Me.LabelUCL.TabIndex = 9
-        Me.LabelUCL.Text = "0"
-        '
-        'LabelLCLword
-        '
-        Me.LabelLCLword.AutoSize = True
-        Me.LabelLCLword.BackColor = System.Drawing.SystemColors.Window
-        Me.LabelLCLword.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelLCLword.Location = New System.Drawing.Point(3, 114)
-        Me.LabelLCLword.Name = "LabelLCLword"
-        Me.LabelLCLword.Size = New System.Drawing.Size(38, 20)
-        Me.LabelLCLword.TabIndex = 9
-        Me.LabelLCLword.Text = "LCL:"
-        '
-        'LabelLCL
-        '
-        Me.LabelLCL.AutoSize = True
-        Me.LabelLCL.BackColor = System.Drawing.SystemColors.Window
-        Me.LabelLCL.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelLCL.Location = New System.Drawing.Point(3, 130)
-        Me.LabelLCL.Name = "LabelLCL"
-        Me.LabelLCL.Size = New System.Drawing.Size(16, 20)
-        Me.LabelLCL.TabIndex = 9
-        Me.LabelLCL.Text = "0"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.Color.White
-        Me.Label13.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(3, 157)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(59, 20)
-        Me.Label13.TabIndex = 9
-        Me.Label13.Text = "RANGE:"
-        '
-        'LabelRange
-        '
-        Me.LabelRange.AutoSize = True
-        Me.LabelRange.BackColor = System.Drawing.Color.White
-        Me.LabelRange.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelRange.Location = New System.Drawing.Point(3, 173)
-        Me.LabelRange.Name = "LabelRange"
-        Me.LabelRange.Size = New System.Drawing.Size(16, 20)
-        Me.LabelRange.TabIndex = 9
-        Me.LabelRange.Text = "0"
-        '
-        'LabelUCLword2
-        '
-        Me.LabelUCLword2.AutoSize = True
-        Me.LabelUCLword2.BackColor = System.Drawing.SystemColors.Window
-        Me.LabelUCLword2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelUCLword2.Location = New System.Drawing.Point(3, 64)
-        Me.LabelUCLword2.Name = "LabelUCLword2"
-        Me.LabelUCLword2.Size = New System.Drawing.Size(39, 20)
-        Me.LabelUCLword2.TabIndex = 9
-        Me.LabelUCLword2.Text = "UCL:"
-        '
-        'LabelUCL2
-        '
-        Me.LabelUCL2.AutoSize = True
-        Me.LabelUCL2.BackColor = System.Drawing.SystemColors.Window
-        Me.LabelUCL2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelUCL2.Location = New System.Drawing.Point(3, 80)
-        Me.LabelUCL2.Name = "LabelUCL2"
-        Me.LabelUCL2.Size = New System.Drawing.Size(16, 20)
-        Me.LabelUCL2.TabIndex = 9
-        Me.LabelUCL2.Text = "0"
-        '
-        'LabelLCLword2
-        '
-        Me.LabelLCLword2.AutoSize = True
-        Me.LabelLCLword2.BackColor = System.Drawing.SystemColors.Window
-        Me.LabelLCLword2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelLCLword2.Location = New System.Drawing.Point(3, 113)
-        Me.LabelLCLword2.Name = "LabelLCLword2"
-        Me.LabelLCLword2.Size = New System.Drawing.Size(38, 20)
-        Me.LabelLCLword2.TabIndex = 9
-        Me.LabelLCLword2.Text = "LCL:"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.BackColor = System.Drawing.Color.White
-        Me.Label15.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(3, 156)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(59, 20)
-        Me.Label15.TabIndex = 9
-        Me.Label15.Text = "RANGE:"
-        '
-        'LabelRange2
-        '
-        Me.LabelRange2.AutoSize = True
-        Me.LabelRange2.BackColor = System.Drawing.Color.White
-        Me.LabelRange2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelRange2.Location = New System.Drawing.Point(3, 172)
-        Me.LabelRange2.Name = "LabelRange2"
-        Me.LabelRange2.Size = New System.Drawing.Size(16, 20)
-        Me.LabelRange2.TabIndex = 9
-        Me.LabelRange2.Text = "0"
-        '
-        'LabelLCL2
-        '
-        Me.LabelLCL2.AutoSize = True
-        Me.LabelLCL2.BackColor = System.Drawing.SystemColors.Window
-        Me.LabelLCL2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelLCL2.Location = New System.Drawing.Point(3, 129)
-        Me.LabelLCL2.Name = "LabelLCL2"
-        Me.LabelLCL2.Size = New System.Drawing.Size(16, 20)
-        Me.LabelLCL2.TabIndex = 9
-        Me.LabelLCL2.Text = "0"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(1178, 579)
+        Me.ClientSize = New System.Drawing.Size(1178, 583)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.MenuStrip1)

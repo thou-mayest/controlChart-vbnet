@@ -11,6 +11,8 @@
     Public Shared ReadToEnd As Boolean = False
     Public Shared interval As Integer = 0
     Public Shared Lang As String = ""
+    Public Shared ServerPath As String = ""
+    Public Shared FromServer As Boolean = False
 
 
     Public Shared Function ColumnFromChar(column As String)

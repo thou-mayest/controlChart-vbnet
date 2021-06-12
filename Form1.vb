@@ -380,8 +380,12 @@ Public Class Form1
         Try
 
             'WorksheetName = Options.SheetName
+            If Options.FromServer Then
+                Filepath = Options.ServerPath
+            Else
+                Filepath = Options.FilePath
+            End If
 
-            Filepath = Options.FilePath
 
             ReadFromXL()
         Catch ex As Exception
@@ -398,7 +402,7 @@ Public Class Form1
 
 
 
-        workbook = xlapp.Workbooks.Open(Filepath)
+        workbook = xlapp.Workbooks.Open(Filepath,, True)
 
         'new here 
         worksheets = workbook.Worksheets()
