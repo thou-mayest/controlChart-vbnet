@@ -592,17 +592,17 @@ Public Class Form1
             Timer1.Stop()
 
         Catch ex As Exception
-            MsgBox("timer not stoped")
+            'MsgBox("timer not stoped")
         End Try
         Try
             ReadThread.Abort()
         Catch ex As Exception
-            MsgBox("tread not sotpped")
+            'MsgBox("tread not sotpped")
         End Try
         Try
             workbook.Close()
         Catch ex As Exception
-            MsgBox("workbook not closed: " & ex.Message)
+            'MsgBox("workbook not closed: " & ex.Message)
         End Try
 
         Try
